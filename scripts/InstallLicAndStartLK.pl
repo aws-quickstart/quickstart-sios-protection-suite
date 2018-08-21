@@ -46,11 +46,11 @@ sub GetLicenseFile {
 	my $s3URI = 0;
 
 	# Check to see if the url is actually an s3 uri
-	if ($licenseURL =~ /^s3:\/\/(.*)/) {
+	if ($licenseURL =~ /^s3:\/\/.*/) {
 		$cmd = "/usr/local/bin/aws s3 cp";
 		
 		# Lop off the trailing slash if there is one. 
-		if ($licenseURL =~ /(.*)\/$/) {
+		if ($licenseURL =~ /.*\/$/) {
 			chop $licenseURL;
 		}
 		$s3URI = 1;
@@ -67,16 +67,16 @@ sub GetLicenseFile {
 	# Download file from S3 URI, and save it to localPath location.
 	if ($s3URI) {
 		$cmd = $cmd . " $localPath";
-		@results = `$cmd 2>&1`;
+		@results = `$cmd 2>&1 | tee -a /var/log/cfn-init.log`;
 		if($?) {
-			return $localPath;
-		} else {
 			return undef;
+		} else {
+			return $localPath;
 		}
 	}
 
 	# Get the license file
-	@results = `$cmd 2>&1`;
+	@results = `$cmd 2>&1 | tee -a /var/log/cfn-init.log`;
 
 	# Check and see if what is returned looks like a license file
 	# because curl does not always set the return code to a non-zero
