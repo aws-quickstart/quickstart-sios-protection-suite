@@ -370,63 +370,63 @@ Mappings:
     AMI:
       SPSLRHEL: SIOS Protection Suite for Linux 9.3.1 on RHEL 7.5-273a5693-de58-4437-87fa-d3b56f714e95-ami-021aac28ca238cc4c.4
       SPSLRHELBYOL: SIOS Protection Suite for Linux 9.3.1 on RHEL 7.5 BYOL-036d4d80-182d-460e-b9cc-01ebc2f842e4-ami-0f67e94a98fb66f17.4
-      WS2016FULLBASE: Windows_Server-2016-English-Full-Base-2019.03.13
+      WS2016FULLBASE: Windows_Server-2016-English-Full-Base-2019.04.10
     ap-northeast-2:
       SPSLRHEL: ami-0a2d3e08c0fe3282d
       SPSLRHELBYOL: ami-09ae3371b83de2f15
-      WS2016FULLBASE: ami-079db7342e45bb5bb
+      WS2016FULLBASE: ami-07219b6e67e0aed12
     ap-south-1:
       SPSLRHEL: ami-055955453448759b8
       SPSLRHELBYOL: ami-053ed790ac8a405a7
-      WS2016FULLBASE: ami-0572a5af4c190f430
+      WS2016FULLBASE: ami-09f8b8067e81a706d
     ap-southeast-1:
       SPSLRHEL: ami-0d524392c4690e60f
       SPSLRHELBYOL: ami-0d502ce6dc74c382f
-      WS2016FULLBASE: ami-0a6920217d3dfcc7e
+      WS2016FULLBASE: ami-00b06a0971151dce9
     ap-southeast-2:
       SPSLRHEL: ami-0494e52812f2d1949
       SPSLRHELBYOL: ami-01fd8910852499995
-      WS2016FULLBASE: ami-01a281cc57627fd42
+      WS2016FULLBASE: ami-0268d6286aac946d9
     ca-central-1:
       SPSLRHEL: ami-097adbaec9cf673db
       SPSLRHELBYOL: ami-0c1c6eb37a3538563
-      WS2016FULLBASE: ami-0cc09498835bfd5ed
+      WS2016FULLBASE: ami-0d5ef77e48a82cd42
     eu-central-1:
       SPSLRHEL: ami-05bb72f57a73c4f60
       SPSLRHELBYOL: ami-02695b9750c23a976
-      WS2016FULLBASE: ami-04c3cf8dfea7d36eb
+      WS2016FULLBASE: ami-0ff4a81fee2c82161
     eu-west-1:
       SPSLRHEL: ami-090bd8e04fc2c2673
       SPSLRHELBYOL: ami-01396d694120fed21
-      WS2016FULLBASE: ami-05ded958b37e57597
+      WS2016FULLBASE: ami-0bed345bed1cab473
     eu-west-2:
       SPSLRHEL: ami-0638a9856c7afad3f
       SPSLRHELBYOL: ami-0bc27a34819556b86
-      WS2016FULLBASE: ami-0f83d76c5da014440
+      WS2016FULLBASE: ami-075a1811b5270e1b2
     eu-west-3:
       SPSLRHEL: ami-01d45eb5db2064f03
       SPSLRHELBYOL: ami-04cea34516804475e
-      WS2016FULLBASE: ami-0e3f0a08a6950f3e2
+      WS2016FULLBASE: ami-02a6fa22e1036b9b3
     sa-east-1:
       SPSLRHEL: ami-0a9785f09231c1737
       SPSLRHELBYOL: ami-00eb4f8954754e0bb
-      WS2016FULLBASE: ami-0e68e8c725924970e
+      WS2016FULLBASE: ami-0ec7be30c2a61840d
     us-east-1:
       SPSLRHEL: ami-04abbebb501b2711f
       SPSLRHELBYOL: ami-047168ac662ca853c
-      WS2016FULLBASE: ami-00a20f508263efd30
+      WS2016FULLBASE: ami-0a7d688fe3e239b69
     us-east-2:
       SPSLRHEL: ami-0c6f0475fcd50f160
       SPSLRHELBYOL: ami-059182a5a2b886549
-      WS2016FULLBASE: ami-04be6a27b0206807f
+      WS2016FULLBASE: ami-0fcd1e0bdff03687d
     us-west-1:
       SPSLRHEL: ami-016e9eb5e4dcd1d12
       SPSLRHELBYOL: ami-03424411430196f1c
-      WS2016FULLBASE: ami-05fd8476c8617cc4c
+      WS2016FULLBASE: ami-04570521f90f1fa06
     us-west-2:
       SPSLRHEL: ami-04bcd80564a8d859a
       SPSLRHELBYOL: ami-084c797edaafb28e7
-      WS2016FULLBASE: ami-0bfb5de21f655d4d3
+      WS2016FULLBASE: ami-00b5b9e28d3450121
 Conditions:
   GovCloudCondition:
     !Equals
