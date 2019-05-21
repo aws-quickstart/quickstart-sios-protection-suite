@@ -368,65 +368,65 @@ Rules:
 Mappings:
   AWSAMIRegionMap:
     AMI:
-      SPSLRHEL: SIOS Protection Suite for Linux 9.3.1 on RHEL 7.5-273a5693-de58-4437-87fa-d3b56f714e95-ami-021aac28ca238cc4c.4
-      SPSLRHELBYOL: SIOS Protection Suite for Linux 9.3.1 on RHEL 7.5 BYOL-036d4d80-182d-460e-b9cc-01ebc2f842e4-ami-0f67e94a98fb66f17.4
-      WS2016FULLBASE: Windows_Server-2016-English-Full-Base-2019.04.26
+      SPSLRHEL: SIOS Protection Suite for Linux 9.3.2 on RHEL 7.6-273a5693-de58-4437-87fa-d3b56f714e95-ami-0c9547033c278dc88.4
+      SPSLRHELBYOL: SIOS Protection Suite for Linux 9.3.2 on RHEL 7.6 BYOL-036d4d80-182d-460e-b9cc-01ebc2f842e4-ami-0365a212c1b58f55c.4
+      WS2016FULLBASE: Windows_Server-2016-English-Full-Base-2019.05.15
     ap-northeast-2:
-      SPSLRHEL: ami-0a2d3e08c0fe3282d
-      SPSLRHELBYOL: ami-09ae3371b83de2f15
-      WS2016FULLBASE: ami-0a244c086008d4efd
+      SPSLRHEL: ami-0b98e9a9d3500a44a
+      SPSLRHELBYOL: ami-055b7786c49b6cb18
+      WS2016FULLBASE: ami-0058dddbdb8f29512
     ap-south-1:
-      SPSLRHEL: ami-055955453448759b8
-      SPSLRHELBYOL: ami-053ed790ac8a405a7
-      WS2016FULLBASE: ami-01f602ac7476d9e36
+      SPSLRHEL: ami-0f5547529836b3db2
+      SPSLRHELBYOL: ami-0df0f638bc840d7a0
+      WS2016FULLBASE: ami-032fbbaf32d503497
     ap-southeast-1:
-      SPSLRHEL: ami-0d524392c4690e60f
-      SPSLRHELBYOL: ami-0d502ce6dc74c382f
-      WS2016FULLBASE: ami-012799a835ac6a1d0
+      SPSLRHEL: ami-048d66a38334df85d
+      SPSLRHELBYOL: ami-01e641bf0758c77d7
+      WS2016FULLBASE: ami-0e8ca15386ded5a7f
     ap-southeast-2:
-      SPSLRHEL: ami-0494e52812f2d1949
-      SPSLRHELBYOL: ami-01fd8910852499995
-      WS2016FULLBASE: ami-0e96a0468179dce58
+      SPSLRHEL: ami-0a66501b31ac7cf7a
+      SPSLRHELBYOL: ami-034ccc83f52644be9
+      WS2016FULLBASE: ami-01a5f3665934df1ca
     ca-central-1:
-      SPSLRHEL: ami-097adbaec9cf673db
-      SPSLRHELBYOL: ami-0c1c6eb37a3538563
-      WS2016FULLBASE: ami-06850b219f7f8ec4d
+      SPSLRHEL: ami-032cdc2a85eef2644
+      SPSLRHELBYOL: ami-00ecfd1e3efa8dfc2
+      WS2016FULLBASE: ami-06fdabc69ab0cf769
     eu-central-1:
-      SPSLRHEL: ami-05bb72f57a73c4f60
-      SPSLRHELBYOL: ami-02695b9750c23a976
-      WS2016FULLBASE: ami-06732cfcceb36d206
+      SPSLRHEL: ami-0d9e56ddd2e6bd34c
+      SPSLRHELBYOL: ami-0386b48fa42528434
+      WS2016FULLBASE: ami-0db2f94d5e49a67a4
     eu-west-1:
-      SPSLRHEL: ami-090bd8e04fc2c2673
-      SPSLRHELBYOL: ami-01396d694120fed21
-      WS2016FULLBASE: ami-08a92ed64caa44b84
+      SPSLRHEL: ami-0184c7aa7ecaf6fcc
+      SPSLRHELBYOL: ami-0244d54da261233f5
+      WS2016FULLBASE: ami-09437ffdb4f64a361
     eu-west-2:
-      SPSLRHEL: ami-0638a9856c7afad3f
-      SPSLRHELBYOL: ami-0bc27a34819556b86
-      WS2016FULLBASE: ami-002b994906de0b994
+      SPSLRHEL: ami-0f2885291ee538553
+      SPSLRHELBYOL: ami-0a9e759432767ce75
+      WS2016FULLBASE: ami-0f8e3bd4713dc814e
     eu-west-3:
-      SPSLRHEL: ami-01d45eb5db2064f03
-      SPSLRHELBYOL: ami-04cea34516804475e
-      WS2016FULLBASE: ami-0a3421f99d36f7006
+      SPSLRHEL: ami-05d0ca5746a749d7d
+      SPSLRHELBYOL: ami-0480d81a3556a1fa8
+      WS2016FULLBASE: ami-0b0cc8d2d8f136b0e
     sa-east-1:
-      SPSLRHEL: ami-0a9785f09231c1737
-      SPSLRHELBYOL: ami-00eb4f8954754e0bb
-      WS2016FULLBASE: ami-0a926c6ebbb385ddf
+      SPSLRHEL: ami-02587c3df97289843
+      SPSLRHELBYOL: ami-091005e474df9e76e
+      WS2016FULLBASE: ami-0a5811e71bd8b7bf0
     us-east-1:
-      SPSLRHEL: ami-04abbebb501b2711f
-      SPSLRHELBYOL: ami-047168ac662ca853c
-      WS2016FULLBASE: ami-0a9d418cd78849a6c
+      SPSLRHEL: ami-0a24d23ed8da64395
+      SPSLRHELBYOL: ami-0ceae6c4dc3464325
+      WS2016FULLBASE: ami-06bee8e1000e44ca4
     us-east-2:
-      SPSLRHEL: ami-0c6f0475fcd50f160
-      SPSLRHELBYOL: ami-059182a5a2b886549
-      WS2016FULLBASE: ami-0101a92481d57c1bc
+      SPSLRHEL: ami-0335ee55599bdf475
+      SPSLRHELBYOL: ami-0aae35d4b0cc91038
+      WS2016FULLBASE: ami-0838ffb5aea8de870
     us-west-1:
-      SPSLRHEL: ami-016e9eb5e4dcd1d12
-      SPSLRHELBYOL: ami-03424411430196f1c
-      WS2016FULLBASE: ami-0d089c9a817ea8b89
+      SPSLRHEL: ami-0bb0503dff70c5f87
+      SPSLRHELBYOL: ami-0511ffae58e74d601
+      WS2016FULLBASE: ami-0453125a0771a994e
     us-west-2:
-      SPSLRHEL: ami-04bcd80564a8d859a
-      SPSLRHELBYOL: ami-084c797edaafb28e7
-      WS2016FULLBASE: ami-0aa8349a37922c345
+      SPSLRHEL: ami-0e53354b84f0263f6
+      SPSLRHELBYOL: ami-0a8aaa179b04003b8
+      WS2016FULLBASE: ami-07f35a597a32e470d
 Conditions:
   GovCloudCondition:
     !Equals
