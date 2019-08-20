@@ -422,7 +422,7 @@ Mappings:
     us-west-1:
       SPSLRHEL: ami-0bb0503dff70c5f87
       SPSLRHELBYOL: ami-0511ffae58e74d601
-      WS2016FULLBASE: ami-0f82c8e9ef453b0fa
+      WS2016FULLBASE: ami-0feab9ccd45037ddb
     us-west-2:
       SPSLRHEL: ami-0e53354b84f0263f6
       SPSLRHELBYOL: ami-0a8aaa179b04003b8
