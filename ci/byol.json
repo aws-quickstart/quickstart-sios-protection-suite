@@ -37,7 +37,7 @@
     },
     {
         "ParameterKey": "SPSLInstanceNamePrefix",
-        "ParameterValue": "SPS-L-"
+        "ParameterValue": "SPSL"
     },
     {
         "ParameterKey": "SPSLInstanceType",
@@ -69,7 +69,7 @@
     },
     {
         "ParameterKey": "MirrorVolumeType",
-        "ParameterValue": "Provisioned IOPS"
+        "ParameterValue": "General Purpose (SSD)"
     },
     {
         "ParameterKey": "MirrorIops",
