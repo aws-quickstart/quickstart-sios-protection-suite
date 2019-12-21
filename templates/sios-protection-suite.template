@@ -361,7 +361,7 @@ Parameters:
     AllowedPattern: ^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$
     ConstraintDescription: Quick Start bucket name can include numbers, lowercase letters, 
       uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).
-    Default: quickstart-sios-protection-suite
+    Default: aws-quickstart
     Description: S3 bucket where the Quick Start templates and scripts are installed.
       Use this parameter to specify the S3 bucket name you’ve created for your copy
       of Quick Start assets, if you decide to customize or extend the Quick Start
@@ -372,7 +372,7 @@ Parameters:
     AllowedPattern: ^[0-9a-zA-Z-/]*$
     ConstraintDescription: Quick Start key prefix can include numbers, lowercase letters,
       uppercase letters, hyphens (-), and forward slash (/).
-    Default: test/
+    Default: quickstart-sios-protection-suite/
     Description: The S3 key name prefix used to simulate a folder for your copy of
       Quick Start assets, if you decide to customize or extend the Quick Start for
       your own use. This prefix can include numbers, lowercase letters, uppercase
@@ -390,10 +390,6 @@ Rules:
       AssertDescription: All subnets must be in the VPC
 Mappings:
   AWSAMIRegionMap:
-    AMI:
-      SPSLRHEL: SIOS Protection Suite for Linux 9.3.1 on RHEL 7.5-273a5693-de58-4437-87fa-d3b56f714e95-ami-021aac28ca238cc4c.4
-      SPSLRHELBYOL: SIOS Protection Suite for Linux 9.3.1 on RHEL 7.5 BYOL-036d4d80-182d-460e-b9cc-01ebc2f842e4-ami-0f67e94a98fb66f17.4
-      WS2016FULLBASE: Windows_Server-2016-English-Full-Base-2019.09.11 - ami-0b91c01eb7fffd30b
     ap-northeast-2:
       SPSLRHEL: ami-08e89e1cda39d9be4
       SPSLRHELBYOL: ami-0df7ec508bb441494
