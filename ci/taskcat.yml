@@ -20,7 +20,20 @@ global:
 tests:
   sios-protection-suite-payg:
     parameter_input: payg.json
+    regions:
+    - us-east-1
+    - us-east-2
+    - ap-northeast-2
+    - ap-south-1
+    - ca-central-1
+    - eu-central-1
     template_file: sios-protection-suite-master.template
   sios-protection-suite-byol:
     parameter_input: byol.json
+    regions:
+    - us-west-1
+    - us-west-2
+    - ap-southeast-1
+    - ap-southeast-2
+    - eu-west-1
     template_file: sios-protection-suite-master.template
