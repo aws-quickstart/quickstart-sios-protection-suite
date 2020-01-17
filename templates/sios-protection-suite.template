@@ -829,6 +829,7 @@ Resources:
             systemctl start amazon-ssm-agent
             sleep 10
           done
+          sleep 300
           aws ssm start-automation-execution \
             --document-name ${SSMDocumentSPSLS4} \
             --region ${AWS::Region} \
