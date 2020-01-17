@@ -393,59 +393,59 @@ Mappings:
     ap-northeast-2:
       SPSLRHEL: ami-08e89e1cda39d9be4
       SPSLRHELBYOL: ami-0df7ec508bb441494
-      WS2016FULLBASE: ami-0ba4be2b9122369d0
+      WS2016FULLBASE: ami-0ca8f1ccdb6072b95
     ap-south-1:
       SPSLRHEL: ami-0ad84ff1eefe1716b
       SPSLRHELBYOL: ami-03761c0d63d1e163a
-      WS2016FULLBASE: ami-0f93a55913b1674e5
+      WS2016FULLBASE: ami-0a6207e27499906a8
     ap-southeast-1:
       SPSLRHEL: ami-01f9923049d1a1b1b
       SPSLRHELBYOL: ami-07fa5b0f3865d1180
-      WS2016FULLBASE: ami-0ee7d851f6067a32a
+      WS2016FULLBASE: ami-02f8bb5d22d8a6f45
     ap-southeast-2:
       SPSLRHEL: ami-0c6b3f9945d1ff9f3
       SPSLRHELBYOL: ami-0ad8cf068029a4c3e
-      WS2016FULLBASE: ami-0502d8da978325e3b
+      WS2016FULLBASE: ami-076acf0f99b739999
     ca-central-1:
       SPSLRHEL: ami-057f94a2b24e854ab
       SPSLRHELBYOL: ami-0b5d743221fa1f861
-      WS2016FULLBASE: ami-092a17523bd292494
+      WS2016FULLBASE: ami-0fcebaeb4fd311763
     eu-central-1:
       SPSLRHEL: ami-08b19ce01a9d2dc15
       SPSLRHELBYOL: ami-0877b3dd7edebf507
-      WS2016FULLBASE: ami-0d0a7c3ad4944bbde
+      WS2016FULLBASE: ami-0cbf1b1038bbb408d
     eu-west-1:
       SPSLRHEL: ami-0e18db572fb8641c8
       SPSLRHELBYOL: ami-0285f77ad50e4dd6e
-      WS2016FULLBASE: ami-03e785f2620db42b7
+      WS2016FULLBASE: ami-0e484c84e6d59f3a3
     eu-west-2:
       SPSLRHEL: ami-061a87944bd9dbe78
       SPSLRHELBYOL: ami-08dab5611c3bd29f1
-      WS2016FULLBASE: ami-0a63146045407fe91
+      WS2016FULLBASE: ami-01f0765e60ddc2030
     eu-west-3:
       SPSLRHEL: ami-031bcfbdd6a558b75
       SPSLRHELBYOL: ami-0750f0892be3d410a
-      WS2016FULLBASE: ami-0d1734fdfdb51a5d2
+      WS2016FULLBASE: ami-02287d4f5bb0057ed
     sa-east-1:
       SPSLRHEL: ami-0c315c4036e372cfe
       SPSLRHELBYOL: ami-0ac9f930de3e7e17d
-      WS2016FULLBASE: ami-03d1628df9bba93e9
+      WS2016FULLBASE: ami-00aad975eff1d9a01
     us-east-1:
       SPSLRHEL: ami-0505c088a180c8153
       SPSLRHELBYOL: ami-0e39c8e78bb089ea9
-      WS2016FULLBASE: ami-00c96c304f033dfbe
+      WS2016FULLBASE: ami-02daaf23b3890d162
     us-east-2:
       SPSLRHEL: ami-006c5073ad843a12c
       SPSLRHELBYOL: ami-0261e801053adce77
-      WS2016FULLBASE: ami-084c1257f64cd7db9
+      WS2016FULLBASE: ami-0833104f83deab338
     us-west-1:
       SPSLRHEL: ami-07e7a6840d385c4e7
       SPSLRHELBYOL: ami-0169834bd4824bfb9
-      WS2016FULLBASE: ami-053e7390d80e9762f
+      WS2016FULLBASE: ami-08dc1ca51e27079b0
     us-west-2:
       SPSLRHEL: ami-06949e022f39e5d43
       SPSLRHELBYOL: ami-02165c687131f606c
-      WS2016FULLBASE: ami-02a58aeaf6a5f726d
+      WS2016FULLBASE: ami-09e71fb1baf16d0cd
 Conditions:
   GovCloudCondition:
     !Equals
