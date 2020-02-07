@@ -61,7 +61,7 @@
     },
     {
         "ParameterKey": "HomeSize",
-        "ParameterValue": "25"
+        "ParameterValue": "100"
     },
     {
         "ParameterKey": "HomeDeleteOnTermination",

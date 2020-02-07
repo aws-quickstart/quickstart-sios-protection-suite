@@ -288,10 +288,10 @@ Parameters:
     MaxValue: 20000
     ConstraintDescription: Must be in the range 100 - 20000.
   HomeSize:
-    Description: Storage size for the home directory, in GiB. Allowed range is 25 - 16,384.
+    Description: Storage size for the home directory, in GiB. Allowed range is 100 - 16,384.
     Type: Number
-    Default: 25
-    MinValue: 25
+    Default: 100
+    MinValue: 100
     MaxValue: 16384
     ConstraintDescription: Must be in the range 100 - 16384.
   HomeVolumeType:
