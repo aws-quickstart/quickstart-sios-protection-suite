@@ -445,7 +445,7 @@ Mappings:
     us-west-1:
       SPSLRHEL: ami-0fa101ac65557254f
       SPSLRHELBYOL: ami-00dc2b5239ec10de1
-      WS2016FULLBASE: ami-08dc1ca51e27079b0
+      WS2016FULLBASE: ami-0a017e6b84bbbca59
     us-west-2:
       SPSLRHEL: ami-004960c81c18a8e51
       SPSLRHELBYOL: ami-0b900797b8afef06e
