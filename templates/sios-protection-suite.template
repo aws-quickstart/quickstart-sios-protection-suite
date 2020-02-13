@@ -228,10 +228,10 @@ Parameters:
     MaxValue: 20000
     ConstraintDescription: Must be in the range 100 - 20000.
   HomeSize:
-    Description: Storage size for the home directory, in GiB. Allowed range is 25 - 16,384.
+    Description: Storage size for the home directory, in GiB. Allowed range is 100 - 16,384.
     Type: Number
-    Default: 25
-    MinValue: 25
+    Default: 100
+    MinValue: 100
     MaxValue: 16384
     ConstraintDescription: Must be in the range 100 - 16384.
   HomeVolumeType:
@@ -391,60 +391,64 @@ Rules:
 Mappings:
   AWSAMIRegionMap:
     ap-northeast-2:
-      SPSLRHEL: ami-08e89e1cda39d9be4
-      SPSLRHELBYOL: ami-0df7ec508bb441494
+      SPSLRHEL: ami-04977b4ed776b4b5b
+      SPSLRHELBYOL: ami-009827b5230fb7ec2
       WS2016FULLBASE: ami-0ca8f1ccdb6072b95
     ap-south-1:
-      SPSLRHEL: ami-0ad84ff1eefe1716b
-      SPSLRHELBYOL: ami-03761c0d63d1e163a
+      SPSLRHEL: ami-01046cdbe9c30cf02
+      SPSLRHELBYOL: ami-0a4f959efe5175dbf
       WS2016FULLBASE: ami-0a6207e27499906a8
     ap-southeast-1:
-      SPSLRHEL: ami-01f9923049d1a1b1b
-      SPSLRHELBYOL: ami-07fa5b0f3865d1180
+      SPSLRHEL: ami-013a9291a58e17fae
+      SPSLRHELBYOL: ami-0766165ebfef76c6d
       WS2016FULLBASE: ami-02f8bb5d22d8a6f45
     ap-southeast-2:
-      SPSLRHEL: ami-0c6b3f9945d1ff9f3
-      SPSLRHELBYOL: ami-0ad8cf068029a4c3e
+      SPSLRHEL: ami-00912ce46b0494d3c
+      SPSLRHELBYOL: ami-002416903294cdf08
       WS2016FULLBASE: ami-076acf0f99b739999
     ca-central-1:
-      SPSLRHEL: ami-057f94a2b24e854ab
-      SPSLRHELBYOL: ami-0b5d743221fa1f861
+      SPSLRHEL: ami-09cf17313bc31dd47
+      SPSLRHELBYOL: ami-04834f3e5f6263dd8
       WS2016FULLBASE: ami-0fcebaeb4fd311763
     eu-central-1:
-      SPSLRHEL: ami-08b19ce01a9d2dc15
-      SPSLRHELBYOL: ami-0877b3dd7edebf507
+      SPSLRHEL: ami-0159733807ae0eae9
+      SPSLRHELBYOL: ami-0e481f806ac2f3250
       WS2016FULLBASE: ami-0cbf1b1038bbb408d
+    eu-north-1:
+      SPSLRHEL: ami-0cbfc12b15a06c2fc
+      SPSLRHELBYOL: ami-038c4ecb0c5915d9e
+      WS2016FULLBASE: ami-00aee339bceccace9
     eu-west-1:
-      SPSLRHEL: ami-0e18db572fb8641c8
-      SPSLRHELBYOL: ami-0285f77ad50e4dd6e
+      SPSLRHEL: ami-029979daaae8c67d4
+      SPSLRHELBYOL: ami-05d9a9f4c168d2bb2
       WS2016FULLBASE: ami-0e484c84e6d59f3a3
     eu-west-2:
-      SPSLRHEL: ami-061a87944bd9dbe78
-      SPSLRHELBYOL: ami-08dab5611c3bd29f1
+      SPSLRHEL: ami-021ace3b8ec1b6e28
+      SPSLRHELBYOL: ami-0d18269805a4bc17e
       WS2016FULLBASE: ami-01f0765e60ddc2030
     eu-west-3:
-      SPSLRHEL: ami-031bcfbdd6a558b75
-      SPSLRHELBYOL: ami-0750f0892be3d410a
+      SPSLRHEL: ami-0b415f5e38a9dd4e2
+      SPSLRHELBYOL: ami-07900c90d49b93f2d
       WS2016FULLBASE: ami-02287d4f5bb0057ed
     sa-east-1:
-      SPSLRHEL: ami-0c315c4036e372cfe
-      SPSLRHELBYOL: ami-0ac9f930de3e7e17d
+      SPSLRHEL: ami-097e360f128db2758
+      SPSLRHELBYOL: ami-0d5be856236308106
       WS2016FULLBASE: ami-00aad975eff1d9a01
     us-east-1:
-      SPSLRHEL: ami-0505c088a180c8153
-      SPSLRHELBYOL: ami-0e39c8e78bb089ea9
+      SPSLRHEL: ami-0274067c70c85235c
+      SPSLRHELBYOL: ami-09aa086ff20d2822f
       WS2016FULLBASE: ami-02daaf23b3890d162
     us-east-2:
-      SPSLRHEL: ami-006c5073ad843a12c
-      SPSLRHELBYOL: ami-0261e801053adce77
+      SPSLRHEL: ami-0eac62ccec89396e8
+      SPSLRHELBYOL: ami-0010ed8f50785e552
       WS2016FULLBASE: ami-0833104f83deab338
     us-west-1:
-      SPSLRHEL: ami-07e7a6840d385c4e7
-      SPSLRHELBYOL: ami-0169834bd4824bfb9
+      SPSLRHEL: ami-0fa101ac65557254f
+      SPSLRHELBYOL: ami-00dc2b5239ec10de1
       WS2016FULLBASE: ami-08dc1ca51e27079b0
     us-west-2:
-      SPSLRHEL: ami-06949e022f39e5d43
-      SPSLRHELBYOL: ami-02165c687131f606c
+      SPSLRHEL: ami-004960c81c18a8e51
+      SPSLRHELBYOL: ami-0b900797b8afef06e
       WS2016FULLBASE: ami-09e71fb1baf16d0cd
 Conditions:
   GovCloudCondition:
