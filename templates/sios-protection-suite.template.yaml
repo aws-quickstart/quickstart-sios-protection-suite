@@ -48,6 +48,7 @@ Metadata:
         default: AWS Quick Start Configuration
       Parameters:
       - QSS3BucketName
+      - QSS3BucketRegion
       - QSS3KeyPrefix
     ParameterLabels:
       RemoteAccessSecurityGroupID:
@@ -104,6 +105,8 @@ Metadata:
         default: Instance type to use for optional Windows jumpbox
       QSS3BucketName:
         default: Quick Start S3 bucket name
+      QSS3BucketRegion:
+        default: Quick Start S3 bucket region
       QSS3KeyPrefix:
         default: Quick Start S3 key prefix
 Parameters:
@@ -212,7 +215,7 @@ Parameters:
       before terminating your instance. Set to false to keep the home directory volume
       upon termination.
     Type: String
-    Default: 'true'
+    Default: true
     AllowedValues:
     - true
     - false
@@ -249,7 +252,7 @@ Parameters:
       before terminating your instance. Set to false to keep the replicated volume
       upon termination.
     Type: String
-    Default: 'true'
+    Default: true
     AllowedValues:
     - true
     - false
@@ -368,6 +371,10 @@ Parameters:
       for your own use. The bucket name can include numbers, lowercase letters, uppercase
       letters, and hyphens, but should not start or end with a hyphen.
     Type: String
+  QSS3BucketRegion:
+    Default: 'us-east-1'
+    Description: 'The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.'
+    Type: String
   QSS3KeyPrefix:
     AllowedPattern: ^[0-9a-zA-Z-/]*$
     ConstraintDescription: Quick Start key prefix can include numbers, lowercase letters,
@@ -451,6 +458,7 @@ Mappings:
       SPSLRHELBYOL: ami-0b900797b8afef06e
       WS2016FULLBASE: ami-0bd8c602fafdca7b5
 Conditions:
+  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
   GovCloudCondition:
     !Equals
     - !Ref AWS::Region
@@ -487,35 +495,45 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
       Policies:
-      - PolicyName: SPSL-SSM-ENABLED
-        PolicyDocument:
-          Version: 2012-10-17
-          Statement:
-            - Effect: Allow
-              Action:
-              - iam:PassRole
-              - s3:GetObject
-              - s3:ListBucket
-              - s3:GetBucketLocation
-              - ec2:Describe*
-              - ec2:ModifyInstanceAttribute
-              - ec2:AttachVolume
-              - ec2:CreateTags
-              - ec2:CreateVolume
-              - ec2:AssociateAddress
-              - ec2:AttachNetworkInterface
-              - ec2:CreateRoute
-              - ec2:DeleteRoute
-              - ec2:ReplaceRoute
-              - ec2:RebootInstances
-              - ec2:StartInstances
-              - ec2:StopInstances
-              - ec2messages:*
-              - ssm:*
-              - tag:GetResources
-              - cloudformation:SignalResource
-              - cloudformation:DescribeStacks
-              Resource: '*'
+          - PolicyName: SPSL-SSM-ENABLED
+            PolicyDocument:
+              Version: 2012-10-17
+              Statement:
+                - Effect: Allow
+                  Action:
+                  - iam:PassRole
+                  - s3:GetObject
+                  - s3:ListBucket
+                  - s3:GetBucketLocation
+                  - ec2:Describe*
+                  - ec2:ModifyInstanceAttribute
+                  - ec2:AttachVolume
+                  - ec2:CreateTags
+                  - ec2:CreateVolume
+                  - ec2:AssociateAddress
+                  - ec2:AttachNetworkInterface
+                  - ec2:CreateRoute
+                  - ec2:DeleteRoute
+                  - ec2:ReplaceRoute
+                  - ec2:RebootInstances
+                  - ec2:StartInstances
+                  - ec2:StopInstances
+                  - ec2messages:*
+                  - ssm:*
+                  - tag:GetResources
+                  - cloudformation:SignalResource
+                  - cloudformation:DescribeStacks
+                  Resource: '*'
+          - PolicyName: aws-quick-start-s3-policy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Action:
+                    - s3:GetObject
+                  Resource: !Sub
+                    - arn:${AWS::Partition}:s3:::${S3Bucket}/${QSS3KeyPrefix}*
+                    - S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
+                  Effect: Allow
   InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
@@ -843,6 +861,7 @@ Resources:
               Node1PrivateIP=${Node1PrivateIP}, \
               Node2PrivateIP=${Node2PrivateIP}, \
               QSS3BucketName=${QSS3BucketName}, \
+              QSS3BucketRegion=${QSS3BucketRegion}, \
               QSS3KeyPrefix=${QSS3KeyPrefix}, \
               StackName=${AWS::StackName}, \
               AutomationAssumeRole=arn:aws:iam::${AWS::AccountId}:role/${InstanceRole}" >> /var/log/cloud-init.log
@@ -888,21 +907,25 @@ Resources:
               letters and hyphens but should not start or end with a hyphen.
             type: String
             default: aws-quickstart
+          QSS3BucketRegion:
+            default: us-east-1
+            description: The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.
+            type: String
           QSS3KeyPrefix:
             description: The S3 key name prefix used to simulate a folder for your copy of
               Quick Start assets if you decide to customize or extend the Quick Start for
               your own use. This prefix can include numbers, lowercase letters, uppercase
               letters, hyphens and forward slashes, and should end with a forward slash.
             type: String
-            default: quickstart-sios-protection-suite-s4hana/
+            default: quickstart-sios-protection-suite/
           StackName:
             description: Stack Name Input for cfn resource signal
             type: String
-            default: ""
+            default: ''
           AutomationAssumeRole:
             description: (Optional) The ARN of the role that allows Automation to perform the actions on your behalf.
             type: String
-            default: ""
+            default: ''
         mainSteps:
         - name: SPSLNodeInstanceIds
           action: aws:executeAwsApi
@@ -965,7 +988,7 @@ Resources:
               CloudWatchLogGroupName: !Ref 'QuickStartLogs'
             Parameters:
               sourceType: "S3"
-              sourceInfo: '{"path": "https://s3.amazonaws.com/{{QSS3BucketName}}/{{QSS3KeyPrefix}}scripts/init-host.sh"}'
+              sourceInfo: '{"path": "https://{{QSS3BucketName}}.s3.{{QSS3BucketRegion}}.amazonaws.com/{{QSS3KeyPrefix}}scripts/init-host.sh"}'
               commandLine: "./init-host.sh {{SPSLNode1Hostname}} {{SPSLNode2Hostname}} {{Node1PrivateIP}} {{Node2PrivateIP}}"
         - name: "downloadLKLicense"
           action: "aws:runCommand"
@@ -980,7 +1003,7 @@ Resources:
               CloudWatchLogGroupName: !Ref 'QuickStartLogs'
             Parameters:
               sourceType: "S3"
-              sourceInfo: '{"path": "https://s3.amazonaws.com/{{QSS3BucketName}}/{{QSS3KeyPrefix}}scripts/InstallLicAndStartLK.pl"}'
+              sourceInfo: '{"path": "https://{{QSS3BucketName}}.s3.{{QSS3BucketRegion}}.amazonaws.com/{{QSS3KeyPrefix}}scripts/InstallLicAndStartLK.pl"}'
               commandLine: "./InstallLicAndStartLK.pl -s {{StackName}} -r {{global:REGION}} >> /var/log/cloud-init.log"
         - name: "createCommpathsSPSL01"
           action: "aws:runCommand"
@@ -995,7 +1018,7 @@ Resources:
               CloudWatchLogGroupName: !Ref 'QuickStartLogs'
             Parameters:
               sourceType: "S3"
-              sourceInfo: '{"path": "https://s3.amazonaws.com/{{QSS3BucketName}}/{{QSS3KeyPrefix}}scripts/CreateCommPath.pl"}'
+              sourceInfo: '{"path": "https://{{QSS3BucketName}}.s3.{{QSS3BucketRegion}}.amazonaws.com/{{QSS3KeyPrefix}}scripts/CreateCommPath.pl"}'
               commandLine: "sleep 60; ./CreateCommPath.pl -l {{Node1PrivateIP}} -r {{Node2PrivateIP}} -s {{SPSLNode2Hostname}} >> /var/log/cloud-init.log"
         - name: "createCommpathsSPSL02"
           action: "aws:runCommand"
@@ -1010,7 +1033,7 @@ Resources:
               CloudWatchLogGroupName: !Ref 'QuickStartLogs'
             Parameters:
               sourceType: "S3"
-              sourceInfo: '{"path": "https://s3.amazonaws.com/{{QSS3BucketName}}/{{QSS3KeyPrefix}}scripts/CreateCommPath.pl"}'
+              sourceInfo: '{"path": "https://{{QSS3BucketName}}.s3.{{QSS3BucketRegion}}.amazonaws.com/{{QSS3KeyPrefix}}scripts/CreateCommPath.pl"}'
               commandLine: "./CreateCommPath.pl -l {{Node2PrivateIP}} -r {{Node1PrivateIP}} -s {{SPSLNode1Hostname}} >> /var/log/cloud-init.log"
         - name: "CreateMirrors"
           action: "aws:runCommand"
@@ -1025,7 +1048,7 @@ Resources:
               CloudWatchLogGroupName: !Ref 'QuickStartLogs'
             Parameters:
               sourceType: "S3"
-              sourceInfo: '{"path": "https://s3.amazonaws.com/{{QSS3BucketName}}/{{QSS3KeyPrefix}}scripts/CreateMirrorHierarchy.pl"}'
+              sourceInfo: '{"path": "https://{{QSS3BucketName}}.s3.{{QSS3BucketRegion}}.amazonaws.com/{{QSS3KeyPrefix}}scripts/CreateMirrorHierarchy.pl"}'
               commandLine:
                 - |
                    while ! ./CreateMirrorHierarchy.pl -l /dev/xvdca -r /dev/xvdca >> /var/log/cloud-init.log; do sleep 10; done
