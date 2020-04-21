@@ -40,7 +40,7 @@ tests:
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
       QSS3KeyPrefix: quickstart-sios-protection-suite/
-      RemoteAccessCIDR: 0.0.0.0/
+      RemoteAccessCIDR: 0.0.0.0/0
       SIOSAMIType: PAYG
       SIOSLicenseKeyFtpURL: override
       SPSLInstanceNamePrefix: SPSL
