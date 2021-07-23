@@ -7,6 +7,9 @@ Description: This template creates a deployment of SIOS Protection Suite for Lin
   for Linux is licensed separately. Please contact SIOS at support@us.sios.com or
   visit https://us.sios.com/demo-request/ for demo licenses. (qs-1oqhlks0l)
 Metadata:
+  QuickStartDocumentation:
+    EntrypointName: "Parameters for deploying into an existing VPC"
+    Order: "2"
   AWS::CloudFormation::Interface:
     ParameterGroups:
     - Label:
