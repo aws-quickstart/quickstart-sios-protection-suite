@@ -531,6 +531,8 @@ Resources:
           Ref: MirrorDeleteOnTermination
         WindowsJumpboxInstanceType:
           Ref: WindowsJumpboxInstanceType
+        LatestWindowsAmiId:
+          /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base
         QSS3BucketName:
           Ref: QSS3BucketName
         QSS3BucketRegion:
