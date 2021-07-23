@@ -407,50 +407,50 @@ Rules:
 Mappings:
   AWSAMIRegionMap:
     ap-northeast-2:
-      SPSLRHEL: ami-04977b4ed776b4b5b
-      SPSLRHELBYOL: ami-009827b5230fb7ec2
+      SPSLRHEL: ami-0485e973e1194c33e
+      SPSLRHELBYOL: ami-0efadf60ff38217ae
     ap-south-1:
-      SPSLRHEL: ami-01046cdbe9c30cf02
-      SPSLRHELBYOL: ami-0a4f959efe5175dbf
+      SPSLRHEL: ami-0c9d5894fd5b11529
+      SPSLRHELBYOL: ami-03da18e137b632542
     ap-southeast-1:
-      SPSLRHEL: ami-013a9291a58e17fae
-      SPSLRHELBYOL: ami-0766165ebfef76c6d
+      SPSLRHEL: ami-0d7a44008ad759c1f
+      SPSLRHELBYOL: ami-05c3d8026d292cdad
     ap-southeast-2:
-      SPSLRHEL: ami-00912ce46b0494d3c
-      SPSLRHELBYOL: ami-002416903294cdf08
+      SPSLRHEL: ami-0ff5c5a2682c16520
+      SPSLRHELBYOL: ami-0d2d47ed1479af5e1
     ca-central-1:
-      SPSLRHEL: ami-09cf17313bc31dd47
-      SPSLRHELBYOL: ami-04834f3e5f6263dd8
+      SPSLRHEL: ami-0f0899f562ff22d40
+      SPSLRHELBYOL: ami-0e7c215435da0a5f1
     eu-central-1:
-      SPSLRHEL: ami-0159733807ae0eae9
-      SPSLRHELBYOL: ami-0e481f806ac2f3250
+      SPSLRHEL: ami-08c80e8e5bf8610ef
+      SPSLRHELBYOL: ami-04871bc65f51e4654
     eu-north-1:
-      SPSLRHEL: ami-0cbfc12b15a06c2fc
-      SPSLRHELBYOL: ami-038c4ecb0c5915d9e
+      SPSLRHEL: ami-005d150281acf7420
+      SPSLRHELBYOL: ami-02e31a054403c69d2
     eu-west-1:
-      SPSLRHEL: ami-029979daaae8c67d4
-      SPSLRHELBYOL: ami-05d9a9f4c168d2bb2
+      SPSLRHEL: ami-00fb6f3dfd2a12620
+      SPSLRHELBYOL: ami-07b1baca8fa74d10f
     eu-west-2:
-      SPSLRHEL: ami-021ace3b8ec1b6e28
-      SPSLRHELBYOL: ami-0d18269805a4bc17e
+      SPSLRHEL: ami-0eee616a9138050ae
+      SPSLRHELBYOL: ami-053e5f1c037650476
     eu-west-3:
-      SPSLRHEL: ami-0b415f5e38a9dd4e2
-      SPSLRHELBYOL: ami-07900c90d49b93f2d
+      SPSLRHEL: ami-05015b9fe07b96073
+      SPSLRHELBYOL: ami-0e725fa82bd4e80a2
     sa-east-1:
-      SPSLRHEL: ami-097e360f128db2758
-      SPSLRHELBYOL: ami-0d5be856236308106
+      SPSLRHEL: ami-07f8a48f0ba2061bb
+      SPSLRHELBYOL: ami-0627d525b06406a6c
     us-east-1:
-      SPSLRHEL: ami-0274067c70c85235c
-      SPSLRHELBYOL: ami-09aa086ff20d2822f
+      SPSLRHEL: ami-05e1d459c4673baab
+      SPSLRHELBYOL: ami-06b2f6dc7196c311b
     us-east-2:
-      SPSLRHEL: ami-0eac62ccec89396e8
-      SPSLRHELBYOL: ami-0010ed8f50785e552
+      SPSLRHEL: ami-01a1bbc2460b46a96
+      SPSLRHELBYOL: ami-02a421b5904c9b4f5
     us-west-1:
-      SPSLRHEL: ami-0fa101ac65557254f
-      SPSLRHELBYOL: ami-00dc2b5239ec10de1
+      SPSLRHEL: ami-03451aae6fcfbb692
+      SPSLRHELBYOL: ami-002a4e0f1f26cdf72
     us-west-2:
-      SPSLRHEL: ami-004960c81c18a8e51
-      SPSLRHELBYOL: ami-0b900797b8afef06e
+      SPSLRHEL: ami-08a2fdbc639282b96
+      SPSLRHELBYOL: ami-0a23c16a00dd02394
 Conditions:
   UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
   GovCloudCondition:
