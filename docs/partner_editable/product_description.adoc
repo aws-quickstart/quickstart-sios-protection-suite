@@ -2,4 +2,14 @@
 // Briefly describe the software. Use consistent and clear branding. 
 // Include the benefits of using the software on AWS, and provide details on usage scenarios.
 
-<Describe how the software works on AWS.>
+*SIOS Protection Suite for Linux* is a Linux clustering solution that provides a tightly
+integrated combination of high availability failover clustering, continuous application
+monitoring, data replication, and configurable recovery policies. SIOS Protection Suite for
+Linux includes SIOS LifeKeeper, SIOS DataKeeper, and multiple Application Recovery Kits
+(ARKs) to protect your business-critical applications and data from downtime and
+disasters.
+
+SIOS Protection Suite for Linux on AWS provides all the elements you need to create a high
+availability Linux cluster in a virtual private cloud (VPC) within a single AWS Region across
+two Availability Zones. It also supports out-of-the-box protection for SAP systems, Oracle
+databases, and other business-critical applications.

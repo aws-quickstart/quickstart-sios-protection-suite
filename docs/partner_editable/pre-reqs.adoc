@@ -2,12 +2,22 @@
 
 ==== Prepare your AWS account
 
-_Describe any setup required in the AWS account prior to template launch_
+1. If you don’t already have an AWS account, create one at https://aws.amazon.com by
+following the on-screen instructions.
+2. Use the region selector in the navigation bar to choose the AWS Region where you want
+to deploy SIOS Protection Suite for Linux on AWS.
+3. Create a https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html[key pair] in your preferred region.
+4. If necessary, https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-[request a service limit increase] for the Amazon EC2 instance type desired. You might need to do this if you already have an existing deployment that uses this
+instance type, and you think you might exceed the http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html[default limit] with this reference deployment. 
 
-==== Prepare your {partner-company-name} account
+==== Subscribe to the SIOS Protection Suite for Linux AMI
 
-_Describe any setup required in the partner portal/account prior to template launch_
+1. To use BYOL license model, you must:
+* Sign up for the http://us.sios.com/SAN-SANless-clusters/free-trial-evaluation-san-sanless-clusters[14-day free trial] for SIOS Protection Suite for Linux; or
+* Request a quote for a runtime license by https://us.sios.com/buy-sios-clusters-way/[contacting SIOS] directly.
+If instead you want to use a PAYG basic license, you can select PAYG for the AMIType parameter later.
 
-==== Prepare for the deployment
-
-_Describe any preparation required to complete the product build, such as obtaining licenses or placing files in S3_
+[start=2]
+2. Log in to the AWS Marketplace at https://aws.amazon.com/marketplace.
+3. Open the page for https://aws.amazon.com/marketplace/pp/prodview-2xnmiqhsf4b5o?qid=1627072541534&sr=0-5&ref_=srh_res_product_title[SIOS Protection Suite for Linux on RHEL 7.8 – BYOL], and choose *Continue*.
+4. Use the Manual Launch option, and then choose Accept Software Terms. For detailed instructions, see the AWS Marketplace documentation.

@@ -2,22 +2,59 @@
 //Should any sections not be applicable, remove them
 
 == Test the deployment
-// If steps are required to test the deployment, add them here. If not, remove the heading
 
-== Post-deployment steps
-// If post-deployment steps are required, add them here. If not, remove the heading
+The easiest way to determine whether SIOS Protection Suite for Linux has been correctly
+deployed and configured is to verify that the full stack has been created successfully, and
+that the lcdstatus command reports that failover is allowed for all resources.
 
-== Best practices for using {partner-product-short-name} on AWS
-// Provide post-deployment best practices for using the technology on AWS, including considerations such as migrating data, backups, ensuring high performance, high availability, etc. Link to software documentation for detailed information.
+From the AWS Console navigate to the CloudFormation service page. Ensure you have the
+proper region selected. If any stacks report CREATE_FAILED, remedy any errors reported
+in the Events tab at the bottom of the webpage. Invalid parameter input is the most likely
+cause for deployment failures. See the Troubleshooting section of this guide for more
+details. When all stacks display CREATE_SUCCESS, go back to the EC2 service page, and
+log in to either the bastion host or the optional Windows jump server. Follow the https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux[AWS guidelines] for connecting to your instances.
 
-_Add any best practices for using the software._
+1. From the jump server node, use SSH to connect to the instance in the first Availability Zone.
+2. Run **sudo /opt/LifeKeeper/bin/lcdstatus**
+3. The output should contain two resources (/opt/sample_mirror, and datarep-sample), and both resources should report FAILOVER ALLOWED. Also, two known machines should be listed and reported as ALIVE.
 
-== Security
-// Provide post-deployment best practices for using the technology on AWS, including considerations such as migrating data, backups, ensuring high performance, high availability, etc. Link to software documentation for detailed information.
+[#test]
+.Output of lcdstatus, with FAILOVER ALLOWED and state=ALIVE
+image::../images/image1.png[Test]
 
-_Add any security-related information._
+For further configuration details, see the SIOS Protection Suite for Linux SIOS Protection
+Suite for Linux http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm[technical documentation].
 
-== Other useful information
-//Provide any other information of interest to users, especially focusing on areas where AWS or cloud usage differs from on-premises usage.
+== Best Practices
 
-_Add any other details that will help the customer use the software on AWS._
+=== AWS services
+SIOS recommends following AWS best practices for creating and using IAM roles and
+policies, IAM user credentials and roles, and access key rotation.
+* IAM roles: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html
+* IAM policies: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html
+* IAM users: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html
+* Access keys: https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/
+
+=== SIOS Protection Suite for Linux
+
+SIOS also has some recommendations for customers seeking optimal performance. These
+recommendations include considerations specific to both the Linux operating system and
+the AWS Cloud configurations.
+
+* Instance size - Performance relies on several factors. While CPU usage is minimal, RAM
+utilization depends on application performance during peak active workload. The
+recommended instance size for use with SIOS Protection suite for Linux is t2.medium,
+but larger instances should be considered based on application workload.
+* Recovery Time Objective (RTO) and Recovery Point Objective (RPO) - SIOS Protection
+Suite does not add significantly to a typical cluster single-server outage failover RTO.
+Assuming appropriate instance sizes are utilized, resource contention is not an issue,
+SIOS Protection Suite for Linux is properly configured and all resources are in the
+Online state, and assuming trivial application recovery time, an RTO of <1 minute is
+possible. Realistically, an RTO of 2–5 minutes should be expected unless the application
+being protected (MaxDB, SAP, etc.) has an unusually large recovery time.
+
+Assuming the same conditions, RPO should be only a few milliseconds larger than the
+current network write latency between the active and backup nodes. RPO is dependent
+on replication software in use. In many cases, the RPO will be measured in milliseconds,
+but factors like network congestion, abnormally high disk write activity, or slow write
+performance can impact RPO greatly.
