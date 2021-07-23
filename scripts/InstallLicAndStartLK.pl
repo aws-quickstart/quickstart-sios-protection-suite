@@ -62,8 +62,10 @@ sub GetLicenseFile {
         $s3URI = 1;
     }
 
-    # Lop off the trailing slash if there is one. 
-    chop $licenseURL;
+    # Lop off the trailing slash if there is one.
+    if ((substr $licenseURL, -1) eq '/') {
+        chop $licenseURL;
+    }
 
     # Append default license filename to the end of the URL if 
     # no license filename already present
