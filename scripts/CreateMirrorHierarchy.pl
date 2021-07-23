@@ -132,6 +132,13 @@ if (! -b $opt_l) {
 	exit 1;
 }
 
+# create a default partition on the specified device on the template system
+`parted /dev/xvdca --script mklabel gpt mkpart xfspart xfs 0% 100%`;
+if ($? != 0) {
+    print "Failed to create partition for $opt_l on the template server.\n";
+    exit 1;
+}
+
 # Check that the specified devices exists on the target server
 @output = `$LKDIR/bin/lcdremexec -d $targetSys -- "if [ ! -b $opt_r ]; then echo no; else echo yes; fi"`;
 if (($? != 0) || (grep(/^no/, @output))) {
@@ -139,11 +146,18 @@ if (($? != 0) || (grep(/^no/, @output))) {
 	exit 1;
 }
 
+# create a default partition on the specified device on the target system
+`$LKDIR/bin/lcdremexec -d $targetSys -- "parted /dev/xvdca --script mklabel gpt mkpart xfspart xfs 0% 100%"`;
+if ($? != 0) {
+	print "Failed to create partition for $opt_r on the template server.\n";
+	exit 1;
+}
+
 # Make sure the file system driver module is loaded on the template
 @output = `modprobe $fsType >/dev/null 2>&1`;
 
 # Create the mirror resource on the template system (the source)
-system "$LKDRBIN/create -t $LKDRTAG -s $SWITCHBACK -p $opt_l -h \"$NETRAIDTYPE\" -n $mountPoint -x \"\" -e \"\" -f $mountPoint -y $fsType -a $syncType -b $BITMAP -z \"no\" -w \"\"";
+system "$LKDRBIN/create -t $LKDRTAG -s $SWITCHBACK -p ${opt_l}1 -h \"$NETRAIDTYPE\" -n $mountPoint -x \"\" -e \"\" -f $mountPoint -y $fsType -a $syncType -b $BITMAP -z \"no\" -w \"\"";
 
 $ret = $? >> 8;
 if ($ret != 0) {
@@ -169,7 +183,8 @@ $ret = CanextendCheck($LKDRTAG, 'scsi', 'netraid');
 ($ret != 0) && exit 1;
 
 # Setup the bundle for the extend manager
-$baseBundle = "\"$mountPoint\",\"$mountPoint\",\"$mountPoint\\\" \\\"$LKDRTAG\",,\"$syncType\",\"$opt_r\",\"$opt_r\",\"$LKDRTAG\",\"$BITMAP\",\"$mirrorPath\",\"$syncType\"$BUNDLEADDITION";
+my $targetPartition = "${opt_r}1";
+$baseBundle = "\"$mountPoint\",\"$mountPoint\",\"$mountPoint\\\" \\\"$LKDRTAG\",,\"$syncType\",\"$targetPartition\",\"$targetPartition\",\"$LKDRTAG\",\"$BITMAP\",\"$mirrorPath\",\"$syncType\"$BUNDLEADDITION";
 
 # Perform the extend
 system  "$LKDIR/lkadm/bin/extmgrDoExtend.pl -p1 -f, \"$mountPoint\" \"$targetSys\" \"$TARGETPRIORITY\" \"$SWITCHBACK\" \\\"$baseBundle\\\"";
