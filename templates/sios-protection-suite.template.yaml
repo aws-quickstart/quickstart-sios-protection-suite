@@ -309,30 +309,30 @@ Parameters:
     Type: String
   Node1PrivateIP:
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$
-    ConstraintDescription: IPv4 parameter must be in the form x.x.x.x and belong to Private Subnet 1A
-    Description: Primary private IP for the cluster node located in Availability Zone 1.
+    ConstraintDescription: IPv4 parameter must be in the form `x.x.x.x` and belong to private subnet 1A.
+    Description: Primary private IP for the cluster node, located in Availability Zone 1.
     Default: 10.0.0.100
     Type: String
   PrivateSubnet2ID:
-    Description: ID of private subnet 2 in Availability Zone 2 for the SIOS Protection Suite instances (e.g., subnet-a0246dcd).
+    Description: ID of private subnet 2 in Availability Zone 2 for the SIOS Protection Suite instances (for example, `subnet-a0246dcd`).
     Type: AWS::EC2::Subnet::Id
   PrivateSubnet2CIDR:
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/x
-    Description: CIDR IP range for the private subnet located in Availability Zone 2.
+    Description: CIDR IP range for the private subnet, located in Availability Zone 2.
     Default: 10.0.32.0/19
     Type: String
   Node2PrivateIP:
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$
-    ConstraintDescription: IPv4 parameter must be in the form x.x.x.x and belong to Private Subnet 2A
-    Description: Primary private IP for the cluster node located in Availability Zone 2.
+    ConstraintDescription: IPv4 parameter must be in the form `x.x.x.x` and belong to Private Subnet 2A
+    Description: Primary private IP for the cluster node, located in Availability Zone 2.
     Default: 10.0.32.100
     Type: String
   PublicSubnet1ID:
-    Description: ID of public subnet 1 in Availability Zone 1 for the ELB load balancer (e.g., subnet-a0246dcd).
+    Description: ID of public subnet 1 in Availability Zone 1 for the ELB load balancer (for example, `subnet-a0246dcd`).
     Type: AWS::EC2::Subnet::Id
   PublicSubnet2ID:
-    Description: ID of public subnet 2 in Availability Zone 2 for the ELB load balancer (e.g., subnet-a0246dcd).
+    Description: ID of public subnet 2 in Availability Zone 2 for the ELB load balancer (for example, `subnet-a0246dcd`).
     Type: AWS::EC2::Subnet::Id
   WindowsJumpboxInstanceType:
     AllowedValues:
@@ -350,38 +350,51 @@ Parameters:
     - m4.2xlarge
     - m4.4xlarge
     Default: None
-    Description: Amazon EC2 instance type for an optional Windows Jumpbox.
+    Description: Amazon EC2 instance type for an optional Windows jump server.
     Type: String
   LatestWindowsAmiId:
-    Description: Latest Ami id for Windows Server version
+    Description: Latest AMI ID for Windows Server version
     Type : AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base
     AllowedValues:
       - /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base
   QSS3BucketName:
-    AllowedPattern: ^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$
-    ConstraintDescription: Quick Start bucket name can include numbers, lowercase letters, 
-      uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).
+    AllowedPattern: '^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$'
+    ConstraintDescription:
+      The Quick Start bucket name can include numbers, lowercase
+      letters, uppercase letters, and hyphens (-). It cannot start or end with a 
+      hyphen (-).
     Default: aws-quickstart
-    Description: S3 bucket where the Quick Start templates and scripts are installed.
-      Use this parameter to specify the S3 bucket name you’ve created for your copy
-      of Quick Start assets, if you decide to customize or extend the Quick Start
-      for your own use. The bucket name can include numbers, lowercase letters, uppercase
-      letters, and hyphens, but should not start or end with a hyphen.
+    Description:
+      Name of the S3 bucket for your copy of the Quick Start assets. 
+      Keep the default name unless you are customizing the template. 
+      Changing the name updates code references to point to a new Quick 
+      Start location. This name can include numbers, lowercase letters, 
+      uppercase letters, and hyphens, but do not start or end with a hyphen (-). 
+      See https://aws-quickstart.github.io/option1.html.
     Type: String
   QSS3BucketRegion:
     Default: 'us-east-1'
-    Description: 'The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.'
+    Description: 'AWS Region where the Quick Start S3 bucket (QSS3BucketName) is 
+    hosted. Keep the default Region unless you are customizing the template. 
+    Changing this Region updates code references to point to a new Quick Start location. When using your own bucket, specify the Region. 
+    See https://aws-quickstart.github.io/option1.html.'
     Type: String
   QSS3KeyPrefix:
-    AllowedPattern: ^[0-9a-zA-Z-/]*$
-    ConstraintDescription: Quick Start key prefix can include numbers, lowercase letters,
-      uppercase letters, hyphens (-), and forward slash (/).
+    AllowedPattern: '^[0-9a-zA-Z-/]*$'
+    ConstraintDescription:
+      The Quick Start S3 key prefix can include numbers, lowercase letters,
+      uppercase letters, hyphens (-), and forward slashes (/). The prefix should
+      end with a forward slash (/).
     Default: quickstart-sios-protection-suite/
-    Description: The S3 key name prefix used to simulate a folder for your copy of
-      Quick Start assets, if you decide to customize or extend the Quick Start for
-      your own use. This prefix can include numbers, lowercase letters, uppercase
-      letters, hyphens, and forward slashes, and should end with a forward slash.
+    Description:
+      S3 key prefix that is used to simulate a directory for your copy of the 
+      Quick Start assets. Keep the default prefix unless you are customizing 
+      the template. Changing this prefix updates code references to point to 
+      a new Quick Start location. This prefix can include numbers, lowercase 
+      letters, uppercase letters, hyphens (-), and forward slashes (/). End with 
+      a forward slash. See https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html 
+      and https://aws-quickstart.github.io/option1.html.
     Type: String
 Rules:
   SubnetsInVPC:
@@ -392,7 +405,7 @@ Rules:
           - AWS::EC2::Subnet::Id
           - VpcId
         - Fn::RefAll: AWS::EC2::VPC::Id
-      AssertDescription: All subnets must be in the VPC
+      AssertDescription: All subnets must be in the VPC.
 Mappings:
   AWSAMIRegionMap:
     ap-northeast-2:
@@ -1052,4 +1065,7 @@ Resources:
             StackName: "{{StackName}}"
             Status: FAILURE
             UniqueId: "{{SPSLNode2InstanceId.InstanceId}}"
-...
+Outputs:
+  Postdeployment:
+    Description: See the deployment guide for post-deployment steps.
+    Value: https://aws.amazon.com/quickstart/?quickstart-all.sort-by=item.additionalFields.sortDate&quickstart-all.sort-order=desc&awsm.page-quickstart-all=5
