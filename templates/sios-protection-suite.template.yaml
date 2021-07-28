@@ -502,7 +502,7 @@ Resources:
                   - s3:GetObject
                   - s3:ListBucket
                   - s3:GetBucketLocation
-                  - ec2:Describe*
+                  - ec2:DescribeInstances
                   - ec2:ModifyInstanceAttribute
                   - ec2:AttachVolume
                   - ec2:CreateTags
@@ -515,8 +515,11 @@ Resources:
                   - ec2:RebootInstances
                   - ec2:StartInstances
                   - ec2:StopInstances
-                  - ec2messages:*
-                  - ssm:*
+                  - ssm:DescribeInstanceInformation
+                  - ssm:ListCommandInvocations
+                  - ssm:ListCommands
+                  - ssm:SendCommand
+                  - ssm:StartAutomationExecution
                   - tag:GetResources
                   - cloudformation:SignalResource
                   - cloudformation:DescribeStacks
