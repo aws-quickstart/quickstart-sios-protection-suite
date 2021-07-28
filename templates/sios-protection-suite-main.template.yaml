@@ -102,7 +102,7 @@ Metadata:
       NewRootPassword:
         default: New root password
       SIOSAMIType:
-        default: License model for SIOS AMI
+        default: SIOS AMI license type
       SIOSLicenseKeyFtpURL:
         default: SIOS Protection Suite license URL
       WindowsJumpboxInstanceType:
