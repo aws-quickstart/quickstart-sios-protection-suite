@@ -10,6 +10,11 @@ Metadata:
   QuickStartDocumentation:
     EntrypointName: "Parameters for deploying into an existing VPC"
     Order: "2"
+  cfn-lint:
+    config:
+      ignore_checks:
+        - E9101
+        - W9006
   AWS::CloudFormation::Interface:
     ParameterGroups:
     - Label:
@@ -21,7 +26,6 @@ Metadata:
       - PrivateSubnet2ID
       - PrivateSubnet2CIDR
       - PublicSubnet1ID
-      - PublicSubnet2ID
     - Label:
         default: Bastion Configuration
       Parameters:
@@ -43,7 +47,6 @@ Metadata:
       - MirrorDeleteOnTermination
       - NewRootPassword
       - SIOSAMIType
-      - SIOSLicenseKeyFtpURL
       - Node1PrivateIP
       - Node2PrivateIP
       - WindowsJumpboxInstanceType
@@ -85,8 +88,6 @@ Metadata:
         default: new root password
       SIOSAMIType:
         default: License model for SIOS AMI
-      SIOSLicenseKeyFtpURL:
-        default: SIOS Protection Suite license URL
       VPCID:
         default: VPC ID
       PrivateSubnet1ID:
@@ -103,8 +104,6 @@ Metadata:
         default: Node 2 private IP address
       PublicSubnet1ID:
         default: Public subnet 1 ID
-      PublicSubnet2ID:
-        default: Public subnet 2 ID
       WindowsJumpboxInstanceType:
         default: Instance type to use for optional Windows jumpbox
       LatestWindowsAmiId:
@@ -246,10 +245,10 @@ Parameters:
   HomeVolumeType:
     Description: Volume type for the home directory.
     Type: String
-    Default: General Purpose (SSD)
+    Default: "General Purpose (SSD)"
     AllowedValues:
-    - General Purpose (SSD)
-    - Provisioned IOPS
+    - "General Purpose (SSD)"
+    - "Provisioned IOPS"
     ConstraintDescription: Must be 'General Purpose (SSD)' or 'Provisioned IOPS'.
   MirrorDeleteOnTermination:
     Description: Delete the replicated volume when the SIOS Protection Suite server
@@ -283,10 +282,10 @@ Parameters:
   MirrorVolumeType:
     Description: Volume type for the replicated data directory.
     Type: String
-    Default: General Purpose (SSD)
+    Default: "General Purpose (SSD)"
     AllowedValues:
-    - General Purpose (SSD)
-    - Provisioned IOPS
+    - "General Purpose (SSD)"
+    - "Provisioned IOPS"
     ConstraintDescription: Must be 'General Purpose (SSD)' or 'Provisioned IOPS'.
   KeyPairName:
     Description: Public/private key pair, which allows you to connect securely to
@@ -302,13 +301,10 @@ Parameters:
   SIOSAMIType:
     Description: SIOS Protection Suite AMI license model to use for cluster nodes.
     Type: String
-    Default: PAYG
+    Default: "PAYG"
     AllowedValues:
-    - BYOL
-    - PAYG
-  SIOSLicenseKeyFtpURL:
-    Description: URL used to obtain license key for SIOS Protection Suite for Linux software.
-    Type: String
+    - "BYOL"
+    - "PAYG"
   VPCID:
     Description: ID of your existing VPC (e.g., vpc-0343606e).
     Type: AWS::EC2::VPC::Id
@@ -344,9 +340,6 @@ Parameters:
     Type: String
   PublicSubnet1ID:
     Description: ID of public subnet 1 in Availability Zone 1 for the ELB load balancer (e.g., subnet-a0246dcd).
-    Type: AWS::EC2::Subnet::Id
-  PublicSubnet2ID:
-    Description: ID of public subnet 2 in Availability Zone 2 for the ELB load balancer (e.g., subnet-a0246dcd).
     Type: AWS::EC2::Subnet::Id
   WindowsJumpboxInstanceType:
     AllowedValues:
@@ -456,27 +449,19 @@ Mappings:
       SPSLRHELBYOL: ami-0a23c16a00dd02394
 Conditions:
   UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
-  GovCloudCondition:
-    !Equals
-    - !Ref AWS::Region
-    - us-gov-west-1
-  HomeProvisionedIopsCondition:
-    !Equals
-    - !Ref HomeVolumeType
-    - Provisioned IOPS
-  MirrorProvisionedIopsCondition:
-    !Equals
-    - !Ref MirrorVolumeType
-    - Provisioned IOPS
-  NoWindowsInstance: !Equals [ !Ref WindowsJumpboxInstanceType, None ]
-  NeedWindowsInstance: !Not [ Condition: NoWindowsInstance ]
-  BYOLAMICondition:
-    !Equals
-    - !Ref SIOSAMIType
-    - BYOL
+  HomeProvisionedIopsCondition: !Equals [!Ref HomeVolumeType, "Provisioned IOPS"]
+  MirrorProvisionedIopsCondition: !Equals [!Ref MirrorVolumeType, "Provisioned IOPS"]
+  NoWindowsInstance: !Equals [!Ref WindowsJumpboxInstanceType, "None"]
+  NeedWindowsInstance: !Not [Condition: NoWindowsInstance]
+  BYOLAMICondition: !Equals [!Ref SIOSAMIType, "BYOL"]
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - EIAMPolicyWildcardResource #Follows principle of least privilege
     Properties:
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -490,18 +475,69 @@ Resources:
               - sts:AssumeRole
       Path: /
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+        - !Sub "arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
       Policies:
-          - PolicyName: SPSL-SSM-ENABLED
+          - PolicyName: aws-quick-start-s3-policy
+            PolicyDocument:
+              Version: 2012-10-17
+              Statement:
+                - Action:
+                    - s3:GetObject
+                    - s3:ListBucket
+                  Resource:
+                    - !Sub ['arn:${AWS::Partition}:s3:::${S3Bucket}/${QSS3KeyPrefix}*', S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]]
+                    - !Sub ['arn:${AWS::Partition}:s3:::${S3Bucket}', S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]]
+                  Effect: Allow
+                - Action:
+                    - s3:GetObject
+                  Resource: 
+                    - !Sub 'arn:${AWS::Partition}:s3:::aws-ssm-${AWS::Region}/*'
+                    - !Sub 'arn:${AWS::Partition}:s3:::amazon-ssm-${AWS::Region}/*'
+                    - !Sub 'arn:${AWS::Partition}:s3:::amazon-ssm-packages-${AWS::Region}/*'
+                    - !Sub 'arn:${AWS::Partition}:s3:::${AWS::Region}-birdwatcher-prod/*'
+                    - !Sub 'arn:${AWS::Partition}:s3:::patch-baseline-snapshot-${AWS::Region}/*'
+                  Effect: Allow
+          - PolicyName: cloudformation-policy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - cloudformation:SignalResource
+                  Resource: !Sub 'arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*'
+                - Effect: Allow
+                  Action:
+                    - cloudformation:DescribeStacks
+                  Resource: !Sub 'arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/*'
+          - PolicyName: ssm-policy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action: ssm:StartAutomationExecution
+                  Resource: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${SSMDocumentSPSLS4}:$DEFAULT
+                - Effect: Allow
+                  Action: ssm:SendCommand
+                  Resource:
+                    - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:*:document/AWS-RunRemoteScript
+                - Effect: Allow
+                  Action: ssm:SendCommand
+                  Resource: !Sub arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/*
+                  Condition:
+                    StringEquals:
+                      'ssm:ResourceTag/aws:cloudformation:stack-name': !Ref AWS::StackName
+                - Effect: Allow
+                  Action:
+                  - ssm:DescribeInstanceInformation
+                  - ssm:ListCommandInvocations
+                  - ssm:ListCommands
+                  Resource: '*'
+          - PolicyName: SPSL-EC2
             PolicyDocument:
               Version: 2012-10-17
               Statement:
                 - Effect: Allow
                   Action:
-                  - iam:PassRole
-                  - s3:GetObject
-                  - s3:ListBucket
-                  - s3:GetBucketLocation
                   - ec2:DescribeInstances
                   - ec2:ModifyInstanceAttribute
                   - ec2:AttachVolume
@@ -515,25 +551,21 @@ Resources:
                   - ec2:RebootInstances
                   - ec2:StartInstances
                   - ec2:StopInstances
-                  - ssm:DescribeInstanceInformation
-                  - ssm:ListCommandInvocations
-                  - ssm:ListCommands
-                  - ssm:SendCommand
-                  - ssm:StartAutomationExecution
                   - tag:GetResources
-                  - cloudformation:SignalResource
-                  - cloudformation:DescribeStacks
                   Resource: '*'
-          - PolicyName: aws-quick-start-s3-policy
-            PolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Action:
-                    - s3:GetObject
-                  Resource: !Sub
-                    - arn:${AWS::Partition}:s3:::${S3Bucket}/${QSS3KeyPrefix}*
-                    - S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
-                  Effect: Allow
+  SIOSPassRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: MSSQL-SSM-PassRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - iam:PassRole
+            Resource: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${InstanceRole}'
+      Roles:
+        - !Ref 'InstanceRole'
   InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
@@ -602,7 +634,7 @@ Resources:
         ToPort: 5902
         SourceSecurityGroupId: !Ref RemoteAccessSecurityGroupID
       SecurityGroupEgress:
-      - IpProtocol: -1
+      - IpProtocol: "-1"
         CidrIp: 0.0.0.0/0
         FromPort: 1
         ToPort: 65535
@@ -628,12 +660,12 @@ Resources:
       InstanceType: !Ref WindowsJumpboxInstanceType
       KeyName: !Ref KeyPairName
       NetworkInterfaces:
-      - AssociatePublicIpAddress: 'true'
+      - AssociatePublicIpAddress: true
         GroupSet:
         - !Ref SPSLSecurityGroup
         - !Ref RemoteAccessSecurityGroupID
         - !Ref JavaSecurityGroup
-        DeviceIndex: 0
+        DeviceIndex: "0"
         DeleteOnTermination: true
         SubnetId: !Ref PublicSubnet1ID
       Tags:
@@ -642,7 +674,6 @@ Resources:
           ${SPSLInstanceNamePrefix}Jumpbox
   SPSLNode1Interface:
     Type: AWS::EC2::NetworkInterface
-    DependsOn: SPSLSecurityGroup
     Properties:
       GroupSet:
       - !Ref SPSLSecurityGroup
@@ -653,7 +684,6 @@ Resources:
       SourceDestCheck: false
   SPSLNode2Interface:
     Type: AWS::EC2::NetworkInterface
-    DependsOn: SPSLSecurityGroup
     Properties:
       GroupSet:
       - !Ref SPSLSecurityGroup
@@ -664,8 +694,11 @@ Resources:
       SourceDestCheck: false
   SPSLNode1:
     Type: AWS::EC2::Instance
-    DependsOn: SPSLNode1Interface
     Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E2504 #This is conditional and defined by the customer
       AWS::CloudFormation::Authentication:
         S3AccessCreds:
           type: S3
@@ -718,7 +751,7 @@ Resources:
       KeyName: !Ref KeyPairName
       NetworkInterfaces:
         - NetworkInterfaceId: !Ref SPSLNode1Interface
-          DeviceIndex: 0
+          DeviceIndex: "0"
       Tags:
       - Key: Name
         Value: !Join ['',[!Ref SPSLInstanceNamePrefix,'01']]
@@ -757,14 +790,17 @@ Resources:
     DependsOn: SPSLNode1
     Properties:
       Handle: !Ref WaitForClusterWaitHandle
-      Timeout: 3600
+      Timeout: "3600"
       Count: 1
   WaitForClusterWaitHandle:
     Type: AWS::CloudFormation::WaitConditionHandle
   SPSLNode2:
     Type: AWS::EC2::Instance
-    DependsOn: SPSLNode2Interface
     Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E2504 #This is conditional and defined by the customer
       AWS::CloudFormation::Authentication:
         S3AccessCreds:
           type: S3
@@ -817,7 +853,7 @@ Resources:
       KeyName: !Ref KeyPairName
       NetworkInterfaces:
         - NetworkInterfaceId: !Ref SPSLNode2Interface
-          DeviceIndex: 0
+          DeviceIndex: "0"
       Tags:
       - Key: Name
         Value: !Join ['',[!Ref SPSLInstanceNamePrefix,'02']]

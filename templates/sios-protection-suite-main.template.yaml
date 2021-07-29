@@ -1,6 +1,6 @@
 ---
 AWSTemplateFormatVersion: 2010-09-09
-Description: This master template creates a VPC infrastructure for a multi-AZ, multi-tier
+Description: This main template creates a VPC infrastructure for a multi-AZ, multi-tier
   deployment of SIOS Protection Suite for Linux on AWS EC2. It deploys a VPC with 
   bastions and the SIOS Protection Suite for Linux solution. **WARNING** This template 
   creates EC2 instances and related resources. You will be billed for the AWS resources 
@@ -11,6 +11,11 @@ Metadata:
   QuickStartDocumentation:
     EntrypointName: "Parameters for deploying into a new VPC"
     Order: "1"
+  cfn-lint:
+    config:
+      ignore_checks:
+        - W9006
+        - W9901
   AWS::CloudFormation::Interface:
     ParameterGroups:
     - Label:
@@ -42,7 +47,6 @@ Metadata:
       - MirrorDeleteOnTermination
       - NewRootPassword
       - SIOSAMIType
-      - SIOSLicenseKeyFtpURL
       - Node1PrivateIP
       - Node2PrivateIP
       - WindowsJumpboxInstanceType
@@ -103,8 +107,6 @@ Metadata:
         default: new root password
       SIOSAMIType:
         default: License model for SIOS AMI
-      SIOSLicenseKeyFtpURL:
-        default: SIOS Protection Suite license URL
       WindowsJumpboxInstanceType:
         default: Optional Windows jumpbox instance type
       QSS3BucketName:
@@ -284,7 +286,7 @@ Parameters:
     Description: Delete home directory volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the home directory volume upon termination.
     Type: String
     Default: "true"
-    AllowedValues: [true, false]
+    AllowedValues: ["true", "false"]
     ConstraintDescription: Must be 'true' or 'false'.
   HomeIops:
     Description: IOPS for the home directory. This value is used only when the Home volume type parameter is set to Provisioned IOPS. Allowed range is 100-20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.
@@ -310,7 +312,7 @@ Parameters:
     Description: Delete the replicated volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the replicated volume upon termination.
     Type: String
     Default: "true"
-    AllowedValues: [true, false]
+    AllowedValues: ["true", "false"]
     ConstraintDescription: Must be 'true' or 'false'.
   MirrorIops:
     Description: IOPS for the mirror volume. This value is used only when the Mirror volume type parameter is set to Provisioned IOPS. Allowed range is 100 - 20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.
@@ -369,9 +371,6 @@ Parameters:
     AllowedValues:
     - BYOL
     - PAYG
-  SIOSLicenseKeyFtpURL:
-    Description: URL used to obtain license key for SIOS Protection Suite for Linux software.
-    Type: String
   SPSLInstanceNamePrefix:
     Description: Name prefix for the SIOS Protection Suite servers.
     Type: String
@@ -420,7 +419,6 @@ Resources:
         VPCCIDR: 
           Ref: VPCCIDR
   BastionStack:
-    DependsOn: VPCStack
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL:
@@ -461,7 +459,6 @@ Resources:
           - VPCStack
           - Outputs.VPCID
   SPSStack:
-    DependsOn: BastionStack
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL:
@@ -486,8 +483,6 @@ Resources:
           Ref: NewRootPassword
         SIOSAMIType:
           Ref: SIOSAMIType
-        SIOSLicenseKeyFtpURL:
-          Ref: SIOSLicenseKeyFtpURL
         VPCID:
           Fn::GetAtt:
           - VPCStack
@@ -512,10 +507,6 @@ Resources:
           Fn::GetAtt:
           - VPCStack
           - Outputs.PublicSubnet1ID
-        PublicSubnet2ID:
-          Fn::GetAtt:
-          - VPCStack
-          - Outputs.PublicSubnet2ID
         HomeVolumeType:
           Ref: HomeVolumeType
         HomeIops:
