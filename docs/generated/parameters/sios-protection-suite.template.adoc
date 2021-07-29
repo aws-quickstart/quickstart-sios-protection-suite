@@ -8,8 +8,7 @@
 (`PrivateSubnet1CIDR`)|`10.0.0.0/19`|CIDR IP range for the private subnet located in Availability Zone 1.|Private subnet 2 ID
 (`PrivateSubnet2ID`)|`**__Requires input__**`|ID of private subnet 2 in Availability Zone 2 for the SIOS Protection Suite instances (e.g., subnet-a0246dcd).|CIDR block for private subnet 2A
 (`PrivateSubnet2CIDR`)|`10.0.32.0/19`|CIDR IP range for the private subnet located in Availability Zone 2.|Public subnet 1 ID
-(`PublicSubnet1ID`)|`**__Requires input__**`|ID of public subnet 1 in Availability Zone 1 for the ELB load balancer (e.g., subnet-a0246dcd).|Public subnet 2 ID
-(`PublicSubnet2ID`)|`**__Requires input__**`|ID of public subnet 2 in Availability Zone 2 for the ELB load balancer (e.g., subnet-a0246dcd).
+(`PublicSubnet1ID`)|`**__Requires input__**`|ID of public subnet 1 in Availability Zone 1 for the ELB load balancer (e.g., subnet-a0246dcd).
 |===
 .Bastion Configuration
 [width="100%",cols="16%,11%,73%",options="header",]
@@ -34,8 +33,7 @@
 (`MirrorIops`)|`1000`|IOPS for the mirror volume. This value is used only when the Mirror volume type parameter is set to Provisioned IOPS. Allowed range is 100 - 20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.|Delete mirror on termination
 (`MirrorDeleteOnTermination`)|`True`|Delete the replicated volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the replicated volume upon termination.|new root password
 (`NewRootPassword`)|`**__Requires input__**`|Password for predefined admin user used to administer SIOS Protection Suite (Min. Length of 8 Characters, Max Length of 16 Characters).|License model for SIOS AMI
-(`SIOSAMIType`)|`PAYG`|SIOS Protection Suite AMI license model to use for cluster nodes.|SIOS Protection Suite license URL
-(`SIOSLicenseKeyFtpURL`)|`**__Requires input__**`|URL used to obtain license key for SIOS Protection Suite for Linux software.|Node 1 private IP address
+(`SIOSAMIType`)|`PAYG`|SIOS Protection Suite AMI license model to use for cluster nodes.|Node 1 private IP address
 (`Node1PrivateIP`)|`10.0.0.100`|Primary private IP for the cluster node located in Availability Zone 1.|Node 2 private IP address
 (`Node2PrivateIP`)|`10.0.32.100`|Primary private IP for the cluster node located in Availability Zone 2.|Instance type to use for optional Windows jumpbox
 (`WindowsJumpboxInstanceType`)|`None`|Amazon EC2 instance type for an optional Windows Jumpbox.|SSM Parameter Store query

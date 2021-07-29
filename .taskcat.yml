@@ -53,4 +53,4 @@ tests:
     - ca-central-1
     - eu-central-1
     s3_bucket: ''
-    template: templates/sios-protection-suite-master.template.yaml
+    template: templates/sios-protection-suite-main.template.yaml
