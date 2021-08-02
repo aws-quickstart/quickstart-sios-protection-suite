@@ -24,7 +24,7 @@ Shell (SSH) access to EC2 instances in public and private subnets.*
 ** Two cluster nodes featuring SIOS Protection Suite for Linux high availability software.
 // Add bullet points for any additional components that are included in the deployment. Make sure that the additional components are also represented in the architecture diagram. End each bullet with a period.
 * Amazon CloudWatch log groups to view logs.
-* An AWS Systems Manager to automate the deployment.
+* An AWS Systems Manager runbook to automate the deployment.
 
 [.small]#* The template that deploys the Quick Start into an existing VPC skips the components marked by asterisks and prompts you for your existing VPC configuration.#
 
