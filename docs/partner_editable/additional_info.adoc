@@ -3,41 +3,40 @@
 
 == Test the deployment
 
-The easiest way to determine whether SIOS Protection Suite for Linux has been correctly
-deployed and configured is to verify that the full stack has been created successfully, and
-that the lcdstatus command reports that failover is allowed for all resources.
+To test the deployment, check that the full stack has been created successfully and
+that the `lcdstatus` command reports that failover is allowed for all resources.
 
-From the AWS Console navigate to the CloudFormation service page. Ensure you have the
-proper region selected. If any stacks report CREATE_FAILED, remedy any errors reported
-in the Events tab at the bottom of the webpage. Invalid parameter input is the most likely
-cause for deployment failures. See the Troubleshooting section of this guide for more
-details. When all stacks display CREATE_SUCCESS, go back to the EC2 service page, and
-log in to either the bastion host or the optional Windows jump server. Follow the https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux[AWS guidelines] for connecting to your instances.
-
-1. From the jump server node, use SSH to connect to the instance in the first Availability Zone.
-2. Run **sudo /opt/LifeKeeper/bin/lcdstatus**
-3. The output should contain two resources (/opt/sample_mirror, and datarep-sample), and both resources should report FAILOVER ALLOWED. Also, two known machines should be listed and reported as ALIVE.
+. Open the https://console.aws.amazon.com/cloudformation[AWS CloudFormation console].
+. Select the correct Region from the top toolbar.
+. On the *Stacks* page, look for a status of `CREATE FAILED`. 
+. Choose the stack name.
+. On the *Stack details* page, choose the *Events* tab. Find the explanation for the failed status in the *Status reason* column.
+. Fix errors with the stack. For help, see https://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm#troubleshooting.htm#kanchor187[Troubleshooting] or see https://support.us.sios.com/aspx/SupportHome[SIOS Support^]. Contact mailto:evalsupport@us.sios.com[SIOS pre-sales support] during an evaluation period.
+. After all stacks have a status of `CREATE COMPLETE`, open the https://console.aws.amazon.com/ec2/v2/home?region=us-east-1[Amazon EC2 console].
+. Log in to either the bastion host or the optional Windows jump server. Follow the https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux[AWS guidelines] for connecting to your instances.
+. From the jump server node, use SSH (Secure Shell) to connect to the instance in the first Availability Zone.
+. Run `sudo /opt/LifeKeeper/bin/lcdstatus`.
+. The output should contain two resources: `/opt/sample_mirror` and `datarep-sample`. Both resources should report `FAILOVER ALLOWED`. Two known machines should be listed and reported as `ALIVE`.
 
 [#test]
-.Output of lcdstatus, with FAILOVER ALLOWED and state=ALIVE
-image::../images/image1.png[Test]
+.Output of lcdstatus
+image::../images/lcdstatus-output.png[Test]
 
-For further configuration details, see the SIOS Protection Suite for Linux SIOS Protection
-Suite for Linux http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm[technical documentation].
+For more information, see http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm[SIOS Technical Documentation].
 
 == Best Practices
 
 === AWS services
-SIOS recommends following AWS best practices for creating and using IAM roles and
-policies, IAM user credentials and roles, and access key rotation.
-* IAM roles: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html
-* IAM policies: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html
-* IAM users: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html
-* Access keys: https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/
+SIOS recommends following AWS best practices for creating and using IAM roles and policies, IAM user credentials and roles, and access key rotation. For more information, see the following links.
+
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html[What is IAM?]
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html[Creating IAM policies^]
+* https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html[How IAM users sign in to AWS^]
+* https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users[How to Rotate Access Keys for IAM Users^]
 
 === SIOS Protection Suite for Linux
 
-SIOS also has some recommendations for customers seeking optimal performance. These
+The following recommendations from SIOS can help optimize performance. These
 recommendations include considerations specific to both the Linux operating system and
 the AWS Cloud configurations.
 

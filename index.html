@@ -850,7 +850,6 @@ p.footer-text a{color:#d7d8d8}
 </ul>
 </li>
 <li><a href="#_faq">FAQ</a></li>
-<li><a href="#_troubleshooting">Troubleshooting</a></li>
 <li><a href="#_customer_responsibility">Customer responsibility</a></li>
 <li><a href="#_parameter_reference">Parameter reference</a>
 <ul class="sectlevel2">
@@ -876,7 +875,7 @@ p.footer-text a{color:#d7d8d8}
 </div>
 </div>
 <div class="paragraph text-center">
-<p><strong>July 2021</strong><br>
+<p><strong>August 2021</strong><br>
 <em>SIOS Technology Corp.</em><br>
 <em>AWS Integration &amp; Automation team</em></p>
 </div>
@@ -929,7 +928,7 @@ Amazon may share user-deployment information with the AWS Partner that collabora
 <h2 id="_sios_protection_suite_for_linux_on_aws">SIOS Protection Suite for Linux on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>SIOS Protection Suite for Linux</strong> is a Linux clustering solution that provides a tightly
+<p>SIOS Protection Suite for Linux is a Linux clustering application providing a tightly
 integrated combination of high availability failover clustering, continuous application
 monitoring, data replication, and configurable recovery policies. SIOS Protection Suite for
 Linux includes SIOS LifeKeeper, SIOS DataKeeper, and multiple Application Recovery Kits
@@ -980,7 +979,7 @@ model. You can purchase a <a href="https://us.sios.com/buy-sios-clusters-way/">r
 </div>
 <div class="paragraph">
 <p>You also have the option of using a Pay As You Go (PAYG) license model, which installs a
-basic license. If later you want to upgrade to full functionality, SIOS sales.</p>
+basic license. If you want to upgrade to full functionality, <a href="mailto:sales@us.sios.com" target="_blank" rel="noopener">contact SIOS sales</a>.</p>
 </div>
 </div>
 </div>
@@ -994,7 +993,7 @@ AWS Cloud.</p>
 </div>
 <div id="architecture1" class="imageblock">
 <div class="content">
-<img src="images/architecture_diagram.png" alt="Architecture">
+<img src="images/sios-protection-suite-architecture-diagram.png" alt="Architecture">
 </div>
 <div class="title">Figure 1. Quick Start architecture for SIOS Protection Suite on AWS</div>
 </div>
@@ -1007,47 +1006,34 @@ AWS Cloud.</p>
 <p>A highly available architecture that spans two Availability Zones.*</p>
 </li>
 <li>
-<p>A VPC configured with public and private subnets, according to AWS
-best practices, to provide you with your own virtual network on AWS.*</p>
+<p>A virtual private cloud (VPC) configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*</p>
 </li>
 <li>
 <p>In the public subnets:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed network address translation (NAT) gateways to allow outbound
-internet access for resources in the private subnets.*</p>
+<p>Managed network address translation (NAT) gateways to allow outbound internet access for resources in the private subnets.*</p>
 </li>
 <li>
-<p>A Linux bastion host in an Auto Scaling group to allow inbound Secure
-Shell (SSH) access to EC2 instances in public and private subnets.*</p>
+<p>Linux bastion hosts in an Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling group to allow inbound SSH (Secure Shell) access to Amazon EC2 instances in public and private subnets.*</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>In the private subnets:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>two cluster nodes featuring SIOS Protection Suite for Linux high availability software.</p>
-</li>
-</ul>
-</div>
+<p>In the private subnets, two cluster nodes featuring SIOS Protection Suite for Linux.</p>
 </li>
 <li>
-<p>Amazon CloudWatch log groups to view logs.</p>
+<p>Amazon CloudWatch log groups to monitor, store, and access log files from EC2 instances.</p>
 </li>
 <li>
-<p>An AWS Systems Manager Automation Document to orchestrate the deployment.</p>
+<p>AWS Systems Manager runbook to automate the deployment.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p><span class="small">* The template that deploys the Quick Start into an existing VPC skips the components marked by asterisks and prompts you for your existing VPC configuration.</span></p>
-</div>
-<div class="paragraph">
-<p>Technical specifications for the architecture:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1063,27 +1049,27 @@ Shell (SSH) access to EC2 instances in public and private subnets.*</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">VPC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Single AWS Region with two Availability Zones</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single AWS Region with two Availability Zones.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Instance type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum recommended instance type: t2.medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum recommended instance type: t2.medium.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Operating system</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See the <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm">SIOS Protection Suite for Linux Support Matrix</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See the <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm">SIOS Protection Suite for Linux Support Matrix</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Elastic IP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">One Elastic IP address connected to each bastion host instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One Elastic IP address connected to each bastion host instance.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Instances</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Two instances: two SIOS Protection Suite for Linux cluster nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Two instances: two SIOS Protection Suite for Linux cluster nodes.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Volumes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Two volumes (gp2 or io3) per cluster node: one home volume (/) and one additional volume for replicated data storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Two volumes (gp2 or io3) per cluster node: one home volume (/) and one additional volume for replicated data storage.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1118,7 +1104,7 @@ deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 <p><a href="https://aws.amazon.com/documentation/cloudwatch/">Amazon CloudWatch</a></p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/quickstart/latest/linux-bastion/welcome.html">Linux Bastion Hosts on the AWS Cloud</a> (Quick Start reference deployment)</p>
+<p><a href="https://docs.aws.amazon.com/quickstart/latest/linux-bastion/welcome.html">Linux Bastion Hosts on the AWS Cloud</a> Quick Start reference deployment</p>
 </li>
 </ul>
 </div>
@@ -1159,6 +1145,10 @@ deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm">SIOS Protection Suite for Linux Support Matrix</a>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Elastic IP addresses</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 </tr>
@@ -1172,7 +1162,11 @@ deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instances</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volumes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Two volumes (gp2 or io3) per cluster node: one home volume (/) and one additional volume for replicated data storage.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1268,51 +1262,51 @@ Certain Regions are available on an opt-in basis. For more information, see <a h
 following the on-screen instructions.</p>
 </li>
 <li>
-<p>Use the region selector in the navigation bar to choose the AWS Region where you want
-to deploy SIOS Protection Suite for Linux on AWS.</p>
+<p>Use the Region selector in the navigation bar to choose the AWS Region where you want
+to deploy SIOS Protection Suite on AWS.</p>
 </li>
 <li>
-<p>Create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">key pair</a> in your preferred region.</p>
+<p>Create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank" rel="noopener">key pair</a> in your preferred Region.</p>
 </li>
 <li>
-<p>If necessary, <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-">request a service limit increase</a> for the Amazon EC2 instance type desired. You might need to do this if you already have an existing deployment that uses this
-instance type, and you think you might exceed the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">default limit</a> with this reference deployment.</p>
+<p>If necessary, <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-" target="_blank" rel="noopener">request a service limit increase</a> for the Amazon EC2 r3.xlarge instance type. You might need to do this if you already have an existing deployment that uses this
+instance type, and you think you might exceed the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" target="_blank" rel="noopener">default limit</a> with this reference deployment.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_subscribe_to_the_sios_protection_suite_for_linux_ami">Subscribe to the SIOS Protection Suite for Linux AMI</h4>
+<div class="paragraph">
+<p>This Quick Start uses Amazon Machine Images (AMIs) from the <a href="http://aws.amazon.com/marketplace/" target="_blank" rel="noopener">AWS Marketplace</a>. Before you launch the Quick Start, you must subscribe to one of the SIOS Protection Suite AMIs.</p>
+</div>
+<div class="paragraph">
+<p>Two licensing options are available: Bring Your Own License (BYOL), and pay as you go (PAYG).</p>
+</div>
+<div class="paragraph">
+<p><strong>BYOL option</strong></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>To use BYOL license model, you must:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Sign up for the <a href="http://us.sios.com/SAN-SANless-clusters/free-trial-evaluation-san-sanless-clusters">14-day free trial</a> for SIOS Protection Suite for Linux; or</p>
+<p>If you’re planning to use the BYOL licensing option, obtain a permanent license by <a href="http://us.sios.com/contact-us/" target="_blank" rel="noopener">contacting SIOS directly</a>. You can also sign up for a <a href="http://us.sios.com/SAN-SANless-clusters/free-trial-evaluation-san-sanless-clusters" target="_blank" rel="noopener">free, 14-day, trial license</a>.</p>
 </li>
-<li>
-<p>Request a quote for a runtime license by <a href="https://us.sios.com/buy-sios-clusters-way/">contacting SIOS</a> directly.
-If instead you want to use a PAYG basic license, you can select PAYG for the AMIType parameter later.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="2">
 <li>
 <p>Log in to the AWS Marketplace at <a href="https://aws.amazon.com/marketplace" class="bare">https://aws.amazon.com/marketplace</a>.</p>
 </li>
 <li>
-<p>Open the page for <a href="https://aws.amazon.com/marketplace/pp/prodview-2xnmiqhsf4b5o?qid=1627072541534&amp;sr=0-5&amp;ref_=srh_res_product_title">SIOS Protection Suite for Linux on RHEL 7.8 – BYOL</a>, and choose <strong>Continue</strong>.</p>
+<p>Open the page for <a href="https://aws.amazon.com/marketplace/pp/prodview-2xnmiqhsf4b5o?qid=1627072541534&amp;sr=0-5&amp;ref_=srh_res_product_title">SIOS Protection Suite for Linux on RHEL 7.8 – BYOL</a>. Choose <strong>Continue</strong>.</p>
 </li>
 <li>
-<p>Use the Manual Launch option, and then choose Accept Software Terms. For detailed instructions, see the AWS Marketplace documentation.</p>
+<p>Choose <strong>Manual Launch</strong>, and then choose <strong>Accept Software Terms</strong>. For more information about AWS Marketplace, see <a href="https://aws.amazon.com/marketplace/help/200799470" target="_blank" rel="noopener">Getting started</a>.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>PAYG option</strong></p>
+</div>
+<div class="paragraph">
+<p>To use a PAYG basic license, choose <code>PAYG</code> for the <code>SIOS AMI license type</code> parameter during deployment.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1381,12 +1375,12 @@ If you’re deploying SIOS Protection Suite into an existing VPC, make sure that
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="http://qs_launch_permalink" target="_blank" rel="noopener">Deploy SIOS Protection Suite into a new VPC on AWS</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="http://qs_template_permalink" target="_blank" rel="noopener">View template</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/4wyjk?" target="_blank" rel="noopener">Deploy SIOS Protection Suite into a new VPC on AWS</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/ebJQg?" target="_blank" rel="noopener">View template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="http://qs_launch_permalink" target="_blank" rel="noopener">Deploy SIOS Protection Suite into an existing VPC on AWS</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="http://qs_template_permalink" target="_blank" rel="noopener">View template</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/qM5n9?" target="_blank" rel="noopener">Deploy SIOS Protection Suite into an existing VPC on AWS</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/aDWN9?" target="_blank" rel="noopener">View template</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1424,40 +1418,54 @@ If you’re deploying SIOS Protection Suite into an existing VPC, make sure that
 <h2 id="_test_the_deployment">Test the deployment</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The easiest way to determine whether SIOS Protection Suite for Linux has been correctly
-deployed and configured is to verify that the full stack has been created successfully, and
-that the lcdstatus command reports that failover is allowed for all resources.</p>
-</div>
-<div class="paragraph">
-<p>From the AWS Console navigate to the CloudFormation service page. Ensure you have the
-proper region selected. If any stacks report CREATE_FAILED, remedy any errors reported
-in the Events tab at the bottom of the webpage. Invalid parameter input is the most likely
-cause for deployment failures. See the Troubleshooting section of this guide for more
-details. When all stacks display CREATE_SUCCESS, go back to the EC2 service page, and
-log in to either the bastion host or the optional Windows jump server. Follow the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux">AWS guidelines</a> for connecting to your instances.</p>
+<p>To test the deployment, check that the full stack has been created successfully and
+that the <code>lcdstatus</code> command reports that failover is allowed for all resources.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>From the jump server node, use SSH to connect to the instance in the first Availability Zone.</p>
+<p>Open the <a href="https://console.aws.amazon.com/cloudformation">AWS CloudFormation console</a>.</p>
 </li>
 <li>
-<p>Run <strong>sudo /opt/LifeKeeper/bin/lcdstatus</strong></p>
+<p>Select the correct Region from the top toolbar.</p>
 </li>
 <li>
-<p>The output should contain two resources (/opt/sample_mirror, and datarep-sample), and both resources should report FAILOVER ALLOWED. Also, two known machines should be listed and reported as ALIVE.</p>
+<p>On the <strong>Stacks</strong> page, look for a status of <code>CREATE FAILED</code>.</p>
+</li>
+<li>
+<p>Choose the stack name.</p>
+</li>
+<li>
+<p>On the <strong>Stack details</strong> page, choose the <strong>Events</strong> tab. Find the explanation for the failed status in the <strong>Status reason</strong> column.</p>
+</li>
+<li>
+<p>Fix errors with the stack. For help, see <a href="https://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm#troubleshooting.htm#kanchor187">Troubleshooting</a> or see <a href="https://support.us.sios.com/aspx/SupportHome" target="_blank" rel="noopener">SIOS Support</a>. Contact <a href="mailto:evalsupport@us.sios.com">SIOS pre-sales support</a> during an evaluation period.</p>
+</li>
+<li>
+<p>After all stacks have a status of <code>CREATE COMPLETE</code>, open the <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1">Amazon EC2 console</a>.</p>
+</li>
+<li>
+<p>Log in to either the bastion host or the optional Windows jump server. Follow the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux">AWS guidelines</a> for connecting to your instances.</p>
+</li>
+<li>
+<p>From the jump server node, use SSH (Secure Shell) to connect to the instance in the first Availability Zone.</p>
+</li>
+<li>
+<p>Run <code>sudo /opt/LifeKeeper/bin/lcdstatus</code>.</p>
+</li>
+<li>
+<p>The output should contain two resources: <code>/opt/sample_mirror</code> and <code>datarep-sample</code>. Both resources should report <code>FAILOVER ALLOWED</code>. Two known machines should be listed and reported as <code>ALIVE</code>.</p>
 </li>
 </ol>
 </div>
 <div id="test" class="imageblock">
 <div class="content">
-<img src="images/image1.png" alt="Test">
+<img src="images/lcdstatus-output.png" alt="Test">
 </div>
-<div class="title">Figure 2. Output of lcdstatus, with FAILOVER ALLOWED and state=ALIVE</div>
+<div class="title">Figure 2. Output of lcdstatus</div>
 </div>
 <div class="paragraph">
-<p>For further configuration details, see the SIOS Protection Suite for Linux SIOS Protection
-Suite for Linux <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm">technical documentation</a>.</p>
+<p>For more information, see <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm">SIOS Technical Documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -1467,18 +1475,29 @@ Suite for Linux <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/in
 <div class="sect2">
 <h3 id="_aws_services">AWS services</h3>
 <div class="paragraph">
-<p>SIOS recommends following AWS best practices for creating and using IAM roles and
-policies, IAM user credentials and roles, and access key rotation.
-* IAM roles: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html" class="bare">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html</a>
-* IAM policies: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" class="bare">https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html</a>
-* IAM users: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html" class="bare">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html</a>
-* Access keys: <a href="https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/" class="bare">https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/</a></p>
+<p>SIOS recommends following AWS best practices for creating and using IAM roles and policies, IAM user credentials and roles, and access key rotation. For more information, see the following links.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html">What is IAM?</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">Creating IAM policies</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html" target="_blank" rel="noopener">How IAM users sign in to AWS</a></p>
+</li>
+<li>
+<p><a href="https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users" target="_blank" rel="noopener">How to Rotate Access Keys for IAM Users</a></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_sios_protection_suite_for_linux">SIOS Protection Suite for Linux</h3>
 <div class="paragraph">
-<p>SIOS also has some recommendations for customers seeking optimal performance. These
+<p>The following recommendations from SIOS can help optimize performance. These
 recommendations include considerations specific to both the Linux operating system and
 the AWS Cloud configurations.</p>
 </div>
@@ -1548,14 +1567,6 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshooting">Troubleshooting</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>&lt;Steps for troubleshooting the deployment.&gt;</p>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_customer_responsibility">Customer responsibility</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1581,7 +1592,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <div class="sect2">
 <h3 id="_parameters_for_deploying_into_a_new_vpc">Parameters for deploying into a new VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. VPC &amp; Bastion Configuration</caption>
+<caption class="title">Table 1. VPC &amp; bastion host configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1599,28 +1610,28 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Availability zones
 (<code>AvailabilityZones</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The list of Availability Zones to use for the subnets in the VPC. The Quick Start uses two Availability Zones from your list and preserves the logical order you specify.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Availability Zones to use for the subnets in the VPC. Two Availability Zones are used for this deployment.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed bastion external access CIDR
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed bastion host external access CIDR
 (<code>RemoteAccessCIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the SIOS Protection Suite server via the Bastion Server. We recommend that you set this value to a trusted IP range.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key pair name
 (<code>KeyPairName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public/private key pair, which allows you to connect securely to your instance after it launches. When you created an AWS account, this is the key pair you created in your preferred region.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public/private key pair, which allows you to connect securely to your instance after it launches. When you created an AWS account, this is the key pair you created in your preferred Region.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bastion AMI operating system
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bastion host AMI operating system
 (<code>BastionAMIOS</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux2-HVM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Linux distribution for the AMI to be used for the bastion instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Linux distribution for the AMI to be used for the bastion host instances.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bastion instance type
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bastion host instance type
 (<code>BastionInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>t2.micro</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for the bastion instances.</p></td>
@@ -1629,7 +1640,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number of bastion hosts.
 (<code>NumBastionHosts</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enter the number of bastion hosts to create</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enter the number of bastion hosts to create.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Global CIDR block for entire VPC
@@ -1641,30 +1652,30 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 1A
 (<code>PrivateSubnet1CIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.0/19</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the private subnet located in Availability Zone 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the private subnet, located in Availability Zone 1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 2A
 (<code>PrivateSubnet2CIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.32.0/19</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the private subnet located in Availability Zone 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the private subnet, located in Availability Zone 2.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for public subnet 1
 (<code>PublicSubnet1CIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.128.0/20</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the public (DMZ) subnet located in Availability Zone 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the public subnet, located in Availability Zone 1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for public subnet 2
 (<code>PublicSubnet2CIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.144.0/20</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the public (DMZ) subnet located in Availability Zone 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the public subnet, located in Availability Zone 2.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. SIOS Protection Suite Instance Configuration</caption>
+<caption class="title">Table 2. SIOS Protection Suite instance configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1700,19 +1711,19 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Home directory size
 (<code>HomeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the home directory, in GiB. Allowed range is 100 - 16,384.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the home directory, in GiB. Allowed range is 100–16384.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Home directory IOPS
 (<code>HomeIops</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the home directory. This value is used only when the Home volume type parameter is set to Provisioned IOPS. Allowed range is 100-20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the home directory. This value is used only when the Home volume type parameter is set to <code>Provisioned IOPS</code>. Allowed range is 100–20000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete home on termination
 (<code>HomeDeleteOnTermination</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete home directory volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the home directory volume upon termination.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete home directory volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of <code>true</code> to delete the home directory when the instance is terminated. If <code>true</code>, you must back up your data before terminating your instance. Choose <code>false</code> to keep the home directory volume upon termination.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mirror directory volume type
@@ -1724,28 +1735,28 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mirror directory size
 (<code>MirrorSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the replicated volume, in GiB. Allowed range is 100 - 16,384.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the replicated volume, in GiB. Allowed range is 100–16384.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mirror directory IOPS
 (<code>MirrorIops</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the mirror volume. This value is used only when the Mirror volume type parameter is set to Provisioned IOPS. Allowed range is 100 - 20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the mirror volume. This value is used only when the Mirror volume type parameter is set to Provisioned IOPS. Allowed range is 100–20000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete mirror on termination
 (<code>MirrorDeleteOnTermination</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete the replicated volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the replicated volume upon termination.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete the replicated volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of <code>true</code> to delete the home directory when the instance is terminated. If <code>true</code>, you must back up your data before terminating your instance. Choose <code>false</code> to keep the replicated volume upon termination.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new root password
+<td class="tableblock halign-left valign-top"><p class="tableblock">New root password
 (<code>NewRootPassword</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password for predefined admin user used to administer SIOS Protection Suite (Min. Length of 8 Characters, Max Length of 16 Characters).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for predefined admin user used to administer SIOS Protection Suite (8–16 characters).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">License model for SIOS AMI
+<td class="tableblock halign-left valign-top"><p class="tableblock">SIOS AMI license type
 (<code>SIOSAMIType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>PAYG</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SIOS Protection Suite AMI license model to use for cluster nodes.</p></td>
@@ -1763,15 +1774,15 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Primary private IP for the cluster node located in Availability Zone 2.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Windows jumpbox instance type
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Windows jump server instance type
 (<code>WindowsJumpboxInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>None</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for an optional Windows Jumpbox.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for an optional Windows jump box.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. AWS Quick Start Configuration</caption>
+<caption class="title">Table 3. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1789,19 +1800,19 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
 (<code>QSS3BucketName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket where the Quick Start templates and scripts are installed. Use this parameter to specify the S3 bucket name you’ve created for your copy of Quick Start assets, if you decide to customize or extend the Quick Start for your own use. The bucket name can include numbers, lowercase letters, uppercase letters, and hyphens, but should not start or end with a hyphen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the S3 bucket for your copy of the Quick Start assets. Keep the default name unless you are customizing the template. Changing the name updates code references to point to a new Quick Start location. This name can include numbers, lowercase letters, uppercase letters, and hyphens, but do not start or end with a hyphen (-). See <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket Region
 (<code>QSS3BucketRegion</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. Keep the default Region unless you are customizing the template. Changing this Region updates code references to point to a new Quick Start location. When using your own bucket, specify the Region. See <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
 (<code>QSS3KeyPrefix</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-sios-protection-suite/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The S3 key name prefix used to simulate a folder for your copy of Quick Start assets, if you decide to customize or extend the Quick Start for your own use. This prefix can include numbers, lowercase letters, uppercase letters, hyphens, and forward slashes, and should end with a forward slash.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix that is used to simulate a directory for your copy of the Quick Start assets. Keep the default prefix unless you are customizing the template. Changing this prefix updates code references to point to a new Quick Start location. This prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slashes (/). End with a forward slash. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html" class="bare">https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a> and <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1809,7 +1820,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <div class="sect2">
 <h3 id="_parameters_for_deploying_into_an_existing_vpc">Parameters for deploying into an existing VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Network Configuration</caption>
+<caption class="title">Table 4. Network configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1827,13 +1838,13 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID
 (<code>VPCID</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of your existing VPC (e.g., vpc-0343606e).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of your existing VPC (for example, <code>vpc-0343606e</code>).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 1 ID
 (<code>PrivateSubnet1ID</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the private subnet in Availability Zone 1 in your existing VPC (e.g., subnet-a0246dcd).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the private subnet in Availability Zone 1 in your existing VPC (for example, <code>subnet-a0246dcd</code>).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 1A
@@ -1845,24 +1856,24 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Private subnet 2 ID
 (<code>PrivateSubnet2ID</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of private subnet 2 in Availability Zone 2 for the SIOS Protection Suite instances (e.g., subnet-a0246dcd).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of private subnet 2 in Availability Zone 2 for the SIOS Protection Suite instances (for example, <code>subnet-a0246dcd</code>).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CIDR block for private subnet 2A
 (<code>PrivateSubnet2CIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.32.0/19</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the private subnet located in Availability Zone 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range for the private subnet, located in Availability Zone 2.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Public subnet 1 ID
 (<code>PublicSubnet1ID</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of public subnet 1 in Availability Zone 1 for the ELB load balancer (e.g., subnet-a0246dcd).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of public subnet 1 in Availability Zone 1 for the Elastic Load Balancer (for example, <code>subnet-a0246dcd</code>).</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Bastion Configuration</caption>
+<caption class="title">Table 5. Bastion host configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1880,24 +1891,24 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key pair name
 (<code>KeyPairName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public/private key pair, which allows you to connect securely to your instance after it launches. When you created an AWS account, this is the key pair you created in your preferred region.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public/private key pair, which allows you to connect securely to your instance after it launches. When you created an AWS account, this is the key pair you created in your preferred Region.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bastion security group ID
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bastion host security group ID
 (<code>RemoteAccessSecurityGroupID</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sg-082d2bf72af79eb5b</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ID of the bastion host security group to enable SSH connections (e.g. sg-1a23b456).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed bastion external access CIDR
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowed bastion host external access CIDR
 (<code>RemoteAccessCIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.0.0.0/0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the SIOS Protection Suite server via the Bastion Server. We recommend that you set this value to a trusted IP range.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. SIOS Protection Suite Instance Configuration</caption>
+<caption class="title">Table 6. SIOS Protection Suite instance configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1933,19 +1944,19 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Home directory size
 (<code>HomeSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the home directory, in GiB. Allowed range is 100 - 16,384.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the home directory, in GiB. Allowed range is 100–16384.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Home directory IOPS
 (<code>HomeIops</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the home directory. This value is used only when the Home volume type parameter is set to Provisioned IOPS. Allowed range is 100-20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the home directory. This value is used only when the Home volume type parameter is set to <code>Provisioned IOPS</code>. Allowed range is 100–20000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete home on termination
 (<code>HomeDeleteOnTermination</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete home directory volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the home directory volume upon termination.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete home directory volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of <code>true</code> to delete the home directory when the instance is terminated. If <code>true</code>, you must back up your data before terminating your instance. Choose <code>false</code> to keep the home directory volume upon termination.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mirror directory volume type
@@ -1957,28 +1968,28 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mirror directory size
 (<code>MirrorSize</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the replicated volume, in GiB. Allowed range is 100 - 16,384.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage size for the replicated volume, in GiB. Allowed range is 100–16384.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mirror directory IOPS
 (<code>MirrorIops</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1000</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the mirror volume. This value is used only when the Mirror volume type parameter is set to Provisioned IOPS. Allowed range is 100 - 20,000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IOPS for the mirror volume. This value is used only when the Mirror volume type parameter is set to Provisioned IOPS. Allowed range is 100–20000. The ratio of IOPS to volume size must be 50 or less. For example, if you set this parameter to 5000 IOPS, the home directory size must be at least 100 GiB.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete mirror on termination
 (<code>MirrorDeleteOnTermination</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete the replicated volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of true to delete the home directory when the instance is terminated. If true, you must back up your data before terminating your instance. Set to false to keep the replicated volume upon termination.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete the replicated volume when the SIOS Protection Suite server instance is terminated. Keep the default setting of <code>true</code> to delete the home directory when the instance is terminated. If <code>true</code>, you must back up your data before terminating your instance. Choose <code>false</code> to keep the replicated volume upon termination.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new root password
+<td class="tableblock halign-left valign-top"><p class="tableblock">New root password
 (<code>NewRootPassword</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password for predefined admin user used to administer SIOS Protection Suite (Min. Length of 8 Characters, Max Length of 16 Characters).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for predefined administrator user to administer SIOS Protection Suite (8–16 characters).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">License model for SIOS AMI
+<td class="tableblock halign-left valign-top"><p class="tableblock">SIOS AMI license type
 (<code>SIOSAMIType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>PAYG</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SIOS Protection Suite AMI license model to use for cluster nodes.</p></td>
@@ -1987,30 +1998,30 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Node 1 private IP address
 (<code>Node1PrivateIP</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.0.100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary private IP for the cluster node located in Availability Zone 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Primary private IP for the cluster node, located in Availability Zone 1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Node 2 private IP address
 (<code>Node2PrivateIP</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0.32.100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary private IP for the cluster node located in Availability Zone 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Primary private IP for the cluster node, located in Availability Zone 2.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Instance type to use for optional Windows jumpbox
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Windows jump server instance type
 (<code>WindowsJumpboxInstanceType</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>None</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for an optional Windows Jumpbox.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EC2 instance type for an optional Windows jump server.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSM Parameter Store query
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSM parameter store query
 (<code>LatestWindowsAmiId</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Latest Ami id for Windows Server version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Latest AMI ID for Windows Server version</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. AWS Quick Start Configuration</caption>
+<caption class="title">Table 7. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -2028,19 +2039,19 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
 (<code>QSS3BucketName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket where the Quick Start templates and scripts are installed. Use this parameter to specify the S3 bucket name you’ve created for your copy of Quick Start assets, if you decide to customize or extend the Quick Start for your own use. The bucket name can include numbers, lowercase letters, uppercase letters, and hyphens, but should not start or end with a hyphen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the S3 bucket for your copy of the Quick Start assets. Keep the default name unless you are customizing the template. Changing the name updates code references to point to a new Quick Start location. This name can include numbers, lowercase letters, uppercase letters, and hyphens, but do not start or end with a hyphen (-). See <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket region
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket Region
 (<code>QSS3BucketRegion</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. Keep the default Region unless you are customizing the template. Changing this Region updates code references to point to a new Quick Start location. When using your own bucket, specify the Region. See <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
 (<code>QSS3KeyPrefix</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-sios-protection-suite/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The S3 key name prefix used to simulate a folder for your copy of Quick Start assets, if you decide to customize or extend the Quick Start for your own use. This prefix can include numbers, lowercase letters, uppercase letters, hyphens, and forward slashes, and should end with a forward slash.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix that is used to simulate a directory for your copy of the Quick Start assets. Keep the default prefix unless you are customizing the template. Changing this prefix updates code references to point to a new Quick Start location. This prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slashes (/). End with a forward slash. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html" class="bare">https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a> and <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2095,10 +2106,10 @@ and to share your customizations with others.</p>
 </html>
 <!--
 repo commit:
-97e3a77d52df66927c7e0ffa5d0ec03b15d40c46
+e9146f3809535b349dfc41e67c2912bb494adc6a
 
 submodule config:
  65f80e33e522df2db773d415faf97a7fadf2f5e3 docs/boilerplate (heads/main)
- ffc7af4e59a09dbf52199a3ecf70f3805abeff48 submodules/quickstart-aws-vpc (v1.0-58-gffc7af4)
+ c89deff157bdf59bb159878ebdaea53ae6753759 submodules/quickstart-aws-vpc (v1.0-41-gc89deff)
  dd1762f3d263f3b6b2156340fa36fcff30765888 submodules/quickstart-linux-bastion (heads/main)
 -->
