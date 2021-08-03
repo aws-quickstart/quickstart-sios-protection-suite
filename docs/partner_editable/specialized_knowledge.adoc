@@ -9,4 +9,4 @@ Before you deploy this Quick Start, we recommend that you become familiar with t
 * https://aws.amazon.com/documentation/ec2/[Amazon EC2]
 * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html[Amazon EBS]
 * https://aws.amazon.com/documentation/cloudwatch/[Amazon CloudWatch]
-* https://docs.aws.amazon.com/quickstart/latest/linux-bastion/welcome.html[Linux Bastion Hosts on the AWS Cloud] (Quick Start reference deployment)
+* https://docs.aws.amazon.com/quickstart/latest/linux-bastion/welcome.html[Linux Bastion Hosts on the AWS Cloud] Quick Start reference deployment
