@@ -14,7 +14,7 @@ Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
     - Label:
-        default: VPC & bastion host configuration
+        default: VPC and bastion host configuration
       Parameters:
       - AvailabilityZones
       - RemoteAccessCIDR
