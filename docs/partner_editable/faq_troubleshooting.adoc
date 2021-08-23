@@ -8,7 +8,7 @@
 template with Rollback on failure set to No. (This setting is under Advanced in the
 AWS CloudFormation console, Options page.) With this setting, the stack’s state will be
 retained and the instance will be left running, so you can troubleshoot the issue. You can
-examine the /var/log/cfn-init.log file for details.
+examine the `/var/log/cfn-init.log` file for details.
 
 WARNING: When you set *Rollback on failure* to *Disabled*, you continue to incur AWS charges for this stack. Delete the stack when you finish troubleshooting.
 

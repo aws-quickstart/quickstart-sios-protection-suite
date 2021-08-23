@@ -11,7 +11,7 @@ Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
     - Label:
-        default: VPC & Bastion Configuration
+        default: VPC and bastion host Configuration
       Parameters:
       - AvailabilityZones
       - RemoteAccessCIDR
@@ -25,7 +25,7 @@ Metadata:
       - PublicSubnet1CIDR
       - PublicSubnet2CIDR
     - Label:
-        default: SIOS Protection Suite Instance Configuration
+        default: SIOS Protection Suite instance configuration
       Parameters:
       - SPSLInstanceNamePrefix
       - SPSLInstanceType
@@ -44,7 +44,7 @@ Metadata:
       - Node2PrivateIP
       - WindowsJumpboxInstanceType
     - Label:
-        default: AWS Quick Start Configuration
+        default: AWS Quick Start configuration
       Parameters:
       - QSS3BucketName
       - QSS3BucketRegion
