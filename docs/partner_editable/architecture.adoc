@@ -13,7 +13,7 @@ image::../images/sios-protection-suite-architecture-diagram.png[Architecture]
 As shown in <<architecture1>>, the Quick Start sets up the following:
 
 * A highly available architecture that spans two Availability Zones.*
-* A virtual private cloud (VPC) configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*
+* A VPC configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*
 * In the public subnets:
 ** Managed network address translation (NAT) gateways to allow outbound internet access for resources in the private subnets.*
 ** Linux bastion hosts in an Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling group to allow inbound SSH (Secure Shell) access to Amazon EC2 instances in public and private subnets.*
