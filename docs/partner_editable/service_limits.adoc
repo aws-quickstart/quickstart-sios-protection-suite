@@ -4,10 +4,10 @@
 
 // Space needed to maintain table headers
 |VPCs |1
-|Operating system | See http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm[SIOS Protection Suite for Linux Support Matrix].
+|Operating system | See http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm[SIOS Protection Suite for Linux Support Matrix^].
 |Elastic IP addresses |1
 |Security groups |3
 |AWS Identity and Access Management (IAM) roles |2
 |EC2 instances |2
-|Volumes |Two volumes (gp2 or io3) per cluster node: one home volume (/) and one additional volume for replicated data storage.
+|Volumes |2 volumes (gp2 or io3) per cluster node: 1 home volume (/) and 1 additional volume for replicated data storage.
 |===

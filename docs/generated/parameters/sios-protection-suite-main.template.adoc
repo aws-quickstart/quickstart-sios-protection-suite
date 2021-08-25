@@ -1,12 +1,12 @@
 
-.VPC & bastion host configuration
+.VPC and bastion host configuration
 [width="100%",cols="16%,11%,73%",options="header",]
 |===
 |Parameter label (name) |Default value|Description|Availability zones
 (`AvailabilityZones`)|`**__Requires input__**`|Availability Zones to use for the subnets in the VPC. Two Availability Zones are used for this deployment.|Allowed bastion host external access CIDR
-(`RemoteAccessCIDR`)|`**__Requires input__**`|The CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.|Key pair name
+(`RemoteAccessCIDR`)|`**__Requires input__**`|CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.|Key pair name
 (`KeyPairName`)|`**__Requires input__**`|Public/private key pair, which allows you to connect securely to your instance after it launches. When you created an AWS account, this is the key pair you created in your preferred Region.|Bastion host AMI operating system
-(`BastionAMIOS`)|`Amazon-Linux2-HVM`|The Linux distribution for the AMI to be used for the bastion host instances.|Bastion host instance type
+(`BastionAMIOS`)|`Amazon-Linux2-HVM`|Linux distribution for the AMI to be used for the bastion host instances.|Bastion host instance type
 (`BastionInstanceType`)|`t2.micro`|Amazon EC2 instance type for the bastion instances.|Number of bastion hosts.
 (`NumBastionHosts`)|`1`|Enter the number of bastion hosts to create.|Global CIDR block for entire VPC
 (`VPCCIDR`)|`10.0.0.0/16`|Global CIDR IP range for entire VPC.|CIDR block for private subnet 1A

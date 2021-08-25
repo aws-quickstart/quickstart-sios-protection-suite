@@ -16,7 +16,7 @@
 |Parameter label (name) |Default value|Description|Key pair name
 (`KeyPairName`)|`**__Requires input__**`|Public/private key pair, which allows you to connect securely to your instance after it launches. When you created an AWS account, this is the key pair you created in your preferred Region.|Bastion host security group ID
 (`RemoteAccessSecurityGroupID`)|`sg-082d2bf72af79eb5b`|ID of the bastion host security group to enable SSH connections (e.g. sg-1a23b456).|Allowed bastion host external access CIDR
-(`RemoteAccessCIDR`)|`0.0.0.0/0`|The CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.
+(`RemoteAccessCIDR`)|`0.0.0.0/0`|CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.
 |===
 .SIOS Protection Suite instance configuration
 [width="100%",cols="16%,11%,73%",options="header",]

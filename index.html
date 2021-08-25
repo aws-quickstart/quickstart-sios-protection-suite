@@ -843,12 +843,7 @@ p.footer-text a{color:#d7d8d8}
 </ul>
 </li>
 <li><a href="#_test_the_deployment">Test the deployment</a></li>
-<li><a href="#_best_practices">Best Practices</a>
-<ul class="sectlevel2">
-<li><a href="#_aws_services">AWS services</a></li>
-<li><a href="#_sios_protection_suite_for_linux">SIOS Protection Suite for Linux</a></li>
-</ul>
-</li>
+<li><a href="#_best_practices">Best Practices</a></li>
 <li><a href="#_faq">FAQ</a></li>
 <li><a href="#_customer_responsibility">Customer responsibility</a></li>
 <li><a href="#_parameter_reference">Parameter reference</a>
@@ -902,7 +897,7 @@ report bugs, or submit feature ideas for this Quick Start.
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start reference deployment guide provides step-by-step instructions for
-deploying SIOS Protection Suite for Linux on the AWS Cloud. <a href="http://aws.amazon.com/quickstart/">Quick Starts</a> are automated
+deploying SIOS Protection Suite for Linux on the AWS Cloud. <a href="http://aws.amazon.com/quickstart/" target="_blank" rel="noopener">Quick Starts</a> are automated
 reference deployments that use AWS CloudFormation templates to launch, configure, and
 run the AWS compute, network, storage, and other services required to deploy a specific
 workload on AWS.</p>
@@ -928,18 +923,10 @@ Amazon may share user-deployment information with the AWS Partner that collabora
 <h2 id="_sios_protection_suite_for_linux_on_aws">SIOS Protection Suite for Linux on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SIOS Protection Suite for Linux is a Linux clustering application providing a tightly
-integrated combination of high availability failover clustering, continuous application
-monitoring, data replication, and configurable recovery policies. SIOS Protection Suite for
-Linux includes SIOS LifeKeeper, SIOS DataKeeper, and multiple Application Recovery Kits
-(ARKs) to protect your business-critical applications and data from downtime and
-disasters.</p>
+<p>SIOS Protection Suite for Linux is a Linux clustering application providing a tightly integrated combination of high availability failover clustering, continuous application monitoring, data replication, and configurable recovery policies. SIOS Protection Suite for Linux includes SIOS LifeKeeper, SIOS DataKeeper, and multiple Application Recovery Kits (ARKs) to protect your business-critical applications and data from downtime and disasters.</p>
 </div>
 <div class="paragraph">
-<p>SIOS Protection Suite for Linux on AWS provides all the elements you need to create a high
-availability Linux cluster in a virtual private cloud (VPC) within a single AWS Region across
-two Availability Zones. It also supports out-of-the-box protection for SAP systems, Oracle
-databases, and other business-critical applications.</p>
+<p>SIOS Protection Suite for Linux on AWS provides all the elements you need to create a high availability Linux cluster in a virtual private cloud (VPC) within a single AWS Region across two Availability Zones. It also supports out-of-the-box protection for SAP systems, Oracle databases, and other business-critical applications.</p>
 </div>
 </div>
 </div>
@@ -1006,7 +993,7 @@ AWS Cloud.</p>
 <p>A highly available architecture that spans two Availability Zones.*</p>
 </li>
 <li>
-<p>A virtual private cloud (VPC) configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*</p>
+<p>A VPC configured with public and private subnets, according to AWS best practices, to provide you with your own virtual network on AWS.*</p>
 </li>
 <li>
 <p>In the public subnets:</p>
@@ -1092,19 +1079,19 @@ deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://aws.amazon.com/documentation/vpc/">Amazon VPC</a></p>
+<p><a href="https://aws.amazon.com/documentation/vpc/" target="_blank" rel="noopener">Amazon VPC</a></p>
 </li>
 <li>
-<p><a href="https://aws.amazon.com/documentation/ec2/">Amazon EC2</a></p>
+<p><a href="https://aws.amazon.com/documentation/ec2/" target="_blank" rel="noopener">Amazon EC2</a></p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon EBS</a></p>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html" target="_blank" rel="noopener">Amazon EBS</a></p>
 </li>
 <li>
-<p><a href="https://aws.amazon.com/documentation/cloudwatch/">Amazon CloudWatch</a></p>
+<p><a href="https://aws.amazon.com/documentation/cloudwatch/" target="_blank" rel="noopener">Amazon CloudWatch</a></p>
 </li>
 <li>
-<p><a href="https://docs.aws.amazon.com/quickstart/latest/linux-bastion/welcome.html">Linux Bastion Hosts on the AWS Cloud</a> Quick Start reference deployment</p>
+<p><a href="https://docs.aws.amazon.com/quickstart/latest/linux-bastion/welcome.html" target="_blank" rel="noopener">Linux Bastion Hosts on the AWS Cloud</a> Quick Start reference deployment</p>
 </li>
 </ul>
 </div>
@@ -1146,7 +1133,7 @@ deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Operating system</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm">SIOS Protection Suite for Linux Support Matrix</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/SupportMatrix/index.htm" target="_blank" rel="noopener">SIOS Protection Suite for Linux Support Matrix</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Elastic IP addresses</p></td>
@@ -1166,64 +1153,18 @@ deploy, and operate your infrastructure and applications on the AWS Cloud.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Volumes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Two volumes (gp2 or io3) per cluster node: one home volume (/) and one additional volume for replicated data storage.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 volumes (gp2 or io3) per cluster node: 1 home volume (/) and 1 additional volume for replicated data storage.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_supported_regions">Supported Regions</h4>
+<h4 id="_supported_aws_regions">Supported AWS Regions</h4>
 <div class="paragraph">
-<p>This Quick Start supports the following Regions:</p>
+<p>For any Quick Start to work in a Region other than its default Region, all the services it deploys must be supported in that Region. You can launch a Quick Start in any Region and see if it works. If you get an error such as “Unrecognized resource type,” the Quick Start is not supported in that Region.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>us-east-1 (N. Virginia)</p>
-</li>
-<li>
-<p>us-east-2 (Ohio)</p>
-</li>
-<li>
-<p>us-west-1 (N. California)</p>
-</li>
-<li>
-<p>us-west-2 (Oregon)</p>
-</li>
-<li>
-<p>ap-northeast-2 (Seoul)</p>
-</li>
-<li>
-<p>ap-south-1 (Mumbai)</p>
-</li>
-<li>
-<p>ap-southeast-1 (Singapore)</p>
-</li>
-<li>
-<p>ap-southeast-2 (Sydney)</p>
-</li>
-<li>
-<p>ca-central-1 (Canada Central)</p>
-</li>
-<li>
-<p>eu-central-1 (Frankfort)</p>
-</li>
-<li>
-<p>eu-north-1 (Stockholm)</p>
-</li>
-<li>
-<p>eu-west-1 (Ireland)</p>
-</li>
-<li>
-<p>eu-west-2 (London)</p>
-</li>
-<li>
-<p>eu-west-3 (Paris)</p>
-</li>
-<li>
-<p>sa-east-1 (Sao Paulo)</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>For an up-to-date list of AWS Regions and the AWS services they support, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/" target="_blank" rel="noopener">AWS Regional Services</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1239,9 +1180,9 @@ Certain Regions are available on an opt-in basis. For more information, see <a h
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ec2_key_pairs">EC2 key pairs</h4>
+<h4 id="_amazon_ec2_key_pairs">Amazon EC2 key pairs</h4>
 <div class="paragraph">
-<p>Make sure that at least one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank" rel="noopener">Amazon EC2 key pair</a> exists in your AWS account in the Region where you plan to deploy the Quick Start. Make note of the key pair name. You need it during deployment. To create a key pair, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank" rel="noopener">Amazon EC2 key pairs and Linux instances</a>.</p>
+<p>Ensure that at least one Amazon EC2 key pair exists in your AWS account in the Region where you plan to deploy the Quick Start. Note the key-pair name because you will use it during deployment. To create a key pair, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank" rel="noopener">Amazon EC2 key pairs and Linux instances</a>.</p>
 </div>
 <div class="paragraph">
 <p>For testing or proof-of-concept purposes, we recommend creating a new key pair instead of using one that’s already being used by a production instance.</p>
@@ -1295,7 +1236,7 @@ instance type, and you think you might exceed the <a href="http://docs.aws.amazo
 <p>Log in to the AWS Marketplace at <a href="https://aws.amazon.com/marketplace" class="bare">https://aws.amazon.com/marketplace</a>.</p>
 </li>
 <li>
-<p>Open the page for <a href="https://aws.amazon.com/marketplace/pp/prodview-2xnmiqhsf4b5o?qid=1627072541534&amp;sr=0-5&amp;ref_=srh_res_product_title">SIOS Protection Suite for Linux on RHEL 7.8 – BYOL</a>. Choose <strong>Continue</strong>.</p>
+<p>Open the page for <a href="https://aws.amazon.com/marketplace/pp/prodview-2xnmiqhsf4b5o?qid=1627072541534&amp;sr=0-5&amp;ref_=srh_res_product_title" target="_blank" rel="noopener">SIOS Protection Suite for Linux on RHEL 7.8 – BYOL</a>. Choose <strong>Continue</strong>.</p>
 </li>
 <li>
 <p>Choose <strong>Manual Launch</strong>, and then choose <strong>Accept Software Terms</strong>. For more information about AWS Marketplace, see <a href="https://aws.amazon.com/marketplace/help/200799470" target="_blank" rel="noopener">Getting started</a>.</p>
@@ -1395,7 +1336,7 @@ If you’re deploying SIOS Protection Suite into an existing VPC, make sure that
 <p>On the <strong>Specify stack details</strong> page, change the stack name if needed. Review the parameters for the template. Provide values for the parameters that require input. For all other parameters, review the default settings and customize them as necessary. For details on each parameter, see the <a href="#_parameter_reference">Parameter reference</a> section of this guide. When you finish reviewing and customizing the parameters, choose <strong>Next</strong>.</p>
 </li>
 <li>
-<p>On the <strong>Configure stack options</strong> page, you can <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html" target="_blank" rel="noopener">specify tags</a> (key-value pairs) for resources in your stack and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html" target="_blank" rel="noopener">set advanced options</a>. When you’re finished, choose <strong>Next</strong>.</p>
+<p>On the <strong>Configure stack options</strong> page, you can <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html" target="_blank" rel="noopener">specify tags</a> (key-value pairs) for resources in your stack and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html" target="_blank" rel="noopener">set advanced options</a>. When you finish, choose <strong>Next</strong>.</p>
 </li>
 <li>
 <p>On the <strong>Review</strong> page, review and confirm the template settings. Under <strong>Capabilities</strong>, select the two check boxes to acknowledge that the template creates IAM resources and might require the ability to automatically expand macros.</p>
@@ -1424,13 +1365,13 @@ that the <code>lcdstatus</code> command reports that failover is allowed for all
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the <a href="https://console.aws.amazon.com/cloudformation">AWS CloudFormation console</a>.</p>
+<p>Open the <a href="https://console.aws.amazon.com/cloudformation" target="_blank" rel="noopener">AWS CloudFormation console</a>.</p>
 </li>
 <li>
 <p>Select the correct Region from the top toolbar.</p>
 </li>
 <li>
-<p>On the <strong>Stacks</strong> page, look for a status of <code>CREATE FAILED</code>.</p>
+<p>On the <strong>Stacks</strong> page, look for a status of <code>CREATE_FAILED</code>.</p>
 </li>
 <li>
 <p>Choose the stack name.</p>
@@ -1439,13 +1380,13 @@ that the <code>lcdstatus</code> command reports that failover is allowed for all
 <p>On the <strong>Stack details</strong> page, choose the <strong>Events</strong> tab. Find the explanation for the failed status in the <strong>Status reason</strong> column.</p>
 </li>
 <li>
-<p>Fix errors with the stack. For help, see <a href="https://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm#troubleshooting.htm#kanchor187">Troubleshooting</a> or see <a href="https://support.us.sios.com/aspx/SupportHome" target="_blank" rel="noopener">SIOS Support</a>. Contact <a href="mailto:evalsupport@us.sios.com">SIOS pre-sales support</a> during an evaluation period.</p>
+<p>Fix errors with the stack. For help, see <a href="https://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm#troubleshooting.htm#kanchor187" target="_blank" rel="noopener">Troubleshooting</a> or see <a href="https://support.us.sios.com/aspx/SupportHome" target="_blank" rel="noopener">SIOS Support</a>. Contact <a href="mailto:evalsupport@us.sios.com" target="_blank" rel="noopener">SIOS pre-sales support</a> during an evaluation period.</p>
 </li>
 <li>
-<p>After all stacks have a status of <code>CREATE COMPLETE</code>, open the <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1">Amazon EC2 console</a>.</p>
+<p>After all stacks have a status of <code>CREATE COMPLETE</code>, open the <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1" target="_blank" rel="noopener">Amazon EC2 console</a>.</p>
 </li>
 <li>
-<p>Log in to either the bastion host or the optional Windows jump server. Follow the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux">AWS guidelines</a> for connecting to your instances.</p>
+<p>Log in to either the bastion host or the optional Windows jump server. Follow the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux" target="_blank" rel="noopener">AWS guidelines</a> for connecting to your instances.</p>
 </li>
 <li>
 <p>From the jump server node, use SSH (Secure Shell) to connect to the instance in the first Availability Zone.</p>
@@ -1465,22 +1406,20 @@ that the <code>lcdstatus</code> command reports that failover is allowed for all
 <div class="title">Figure 2. Output of lcdstatus</div>
 </div>
 <div class="paragraph">
-<p>For more information, see <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm">SIOS Technical Documentation</a>.</p>
+<p>For more information, see <a href="http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm" target="_blank" rel="noopener">SIOS Technical Documentation</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_best_practices">Best Practices</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_aws_services">AWS services</h3>
 <div class="paragraph">
-<p>SIOS recommends following AWS best practices for creating and using IAM roles and policies, IAM user credentials and roles, and access key rotation. For more information, see the following links.</p>
+<p>Refer to the following AWS best practices for creating and using IAM roles and policies, IAM user credentials and roles, and access key rotation.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html">What is IAM?</a></p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_forservice.html" target="_blank" rel="noopener">What is IAM?</a></p>
 </li>
 <li>
 <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">Creating IAM policies</a></p>
@@ -1493,40 +1432,8 @@ that the <code>lcdstatus</code> command reports that failover is allowed for all
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_sios_protection_suite_for_linux">SIOS Protection Suite for Linux</h3>
 <div class="paragraph">
-<p>The following recommendations from SIOS can help optimize performance. These
-recommendations include considerations specific to both the Linux operating system and
-the AWS Cloud configurations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Instance size - Performance relies on several factors. While CPU usage is minimal, RAM
-utilization depends on application performance during peak active workload. The
-recommended instance size for use with SIOS Protection suite for Linux is t2.medium,
-but larger instances should be considered based on application workload.</p>
-</li>
-<li>
-<p>Recovery Time Objective (RTO) and Recovery Point Objective (RPO) - SIOS Protection
-Suite does not add significantly to a typical cluster single-server outage failover RTO.
-Assuming appropriate instance sizes are utilized, resource contention is not an issue,
-SIOS Protection Suite for Linux is properly configured and all resources are in the
-Online state, and assuming trivial application recovery time, an RTO of &lt;1 minute is
-possible. Realistically, an RTO of 2–5 minutes should be expected unless the application
-being protected (MaxDB, SAP, etc.) has an unusually large recovery time.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Assuming the same conditions, RPO should be only a few milliseconds larger than the
-current network write latency between the active and backup nodes. RPO is dependent
-on replication software in use. In many cases, the RPO will be measured in milliseconds,
-but factors like network congestion, abnormally high disk write activity, or slow write
-performance can impact RPO greatly.</p>
-</div>
+<p>For SIOS best practices, see <a href="https://docs.us.sios.com/dkce/8.8.0/en/topic/best-practices" target="_blank" rel="noopener">Best Practices</a>.</p>
 </div>
 </div>
 </div>
@@ -1541,7 +1448,7 @@ performance can impact RPO greatly.</p>
 template with Rollback on failure set to No. (This setting is under Advanced in the
 AWS CloudFormation console, Options page.) With this setting, the stack’s state will be
 retained and the instance will be left running, so you can troubleshoot the issue. You can
-examine the /var/log/cfn-init.log file for details.</p>
+examine the <code>/var/log/cfn-init.log</code> file for details.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1592,7 +1499,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <div class="sect2">
 <h3 id="_parameters_for_deploying_into_a_new_vpc">Parameters for deploying into a new VPC</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. VPC &amp; bastion host configuration</caption>
+<caption class="title">Table 1. VPC and bastion host configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1616,7 +1523,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Allowed bastion host external access CIDR
 (<code>RemoteAccessCIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key pair name
@@ -1628,7 +1535,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bastion host AMI operating system
 (<code>BastionAMIOS</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amazon-Linux2-HVM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Linux distribution for the AMI to be used for the bastion host instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linux distribution for the AMI to be used for the bastion host instances.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bastion host instance type
@@ -1903,7 +1810,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <td class="tableblock halign-left valign-top"><p class="tableblock">Allowed bastion host external access CIDR
 (<code>RemoteAccessCIDR</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.0.0.0/0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIDR IP range that is permitted to access the SIOS Protection Suite server through the bastion host. We recommend that you set this value to a trusted IP range.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2070,7 +1977,7 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 <h2 id="_quick_start_reference_deployments">Quick Start reference deployments</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See the <a href="https://aws.amazon.com/quickstart/">AWS Quick Start home page</a>.</p>
+<p>See the <a href="https://aws.amazon.com/quickstart/" target="_blank" rel="noopener">AWS Quick Start home page</a>.</p>
 </div>
 </div>
 </div>
@@ -2106,10 +2013,10 @@ and to share your customizations with others.</p>
 </html>
 <!--
 repo commit:
-e9146f3809535b349dfc41e67c2912bb494adc6a
+aa97bc0937176bece55f7910f6ca2137dc48392d
 
 submodule config:
- 65f80e33e522df2db773d415faf97a7fadf2f5e3 docs/boilerplate (heads/main)
+ 4ee94d6b60ec455e5b452e8ad9841eb825704b70 docs/boilerplate (heads/main)
  c89deff157bdf59bb159878ebdaea53ae6753759 submodules/quickstart-aws-vpc (v1.0-41-gc89deff)
- dd1762f3d263f3b6b2156340fa36fcff30765888 submodules/quickstart-linux-bastion (heads/main)
+ dd1762f3d263f3b6b2156340fa36fcff30765888 submodules/quickstart-linux-bastion (remotes/origin/logging-69-gdd1762f)
 -->
