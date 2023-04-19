@@ -51,7 +51,6 @@ Metadata:
       - Node2PrivateIP
       - WindowsJumpboxInstanceType
       - LatestWindowsAmiId
-      - SIOSLicenseKeyFtpURL
     - Label:
         default: AWS Quick Start configuration
       Parameters:
@@ -89,8 +88,6 @@ Metadata:
         default: New root password
       SIOSAMIType:
         default: SIOS AMI license type
-      SIOSLicenseKeyFtpURL:
-        default: SIOS Protection Suite license URL
       VPCID:
         default: VPC ID
       PrivateSubnet1ID:
