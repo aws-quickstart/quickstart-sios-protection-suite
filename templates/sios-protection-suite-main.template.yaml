@@ -50,6 +50,7 @@ Metadata:
       - Node1PrivateIP
       - Node2PrivateIP
       - WindowsJumpboxInstanceType
+      - SIOSLicenseKeyFtpURL
     - Label:
         default: AWS Quick Start configuration
       Parameters:
