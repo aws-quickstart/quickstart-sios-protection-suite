@@ -88,8 +88,6 @@ Metadata:
         default: New root password
       SIOSAMIType:
         default: SIOS AMI license type
-      SIOSLicenseKeyFtpURL:
-        default: SIOS Protection Suite license URL
       VPCID:
         default: VPC ID
       PrivateSubnet1ID:
@@ -404,50 +402,50 @@ Rules:
 Mappings:
   AWSAMIRegionMap:
     ap-northeast-2:
-      SPSLRHEL: ami-0d016e528c71c0ee0
-      SPSLRHELBYOL: ami-0b9201d63255cb5cf
+      SPSLRHEL: ami-06e37681c0ad24401
+      SPSLRHELBYOL: ami-048552785954256fc
     ap-south-1:
-      SPSLRHEL: ami-013d40db52efcd272
-      SPSLRHELBYOL: ami-07056e985655d39dc
+      SPSLRHEL: ami-02f3b383a488c77ff
+      SPSLRHELBYOL: ami-0a205cd36803e1d06
     ap-southeast-1:
-      SPSLRHEL: ami-06bc9190c4d1a9c1f
-      SPSLRHELBYOL: ami-062396fefaffee5b8
+      SPSLRHEL: ami-016e2026686db39a6
+      SPSLRHELBYOL: ami-038f438c369dbd1d3
     ap-southeast-2:
-      SPSLRHEL: ami-05e5acc8eb5d52b0f
-      SPSLRHELBYOL: ami-0fd2d06e9757a2003
+      SPSLRHEL: ami-05549f55e00347234
+      SPSLRHELBYOL: ami-00b7bb181421b6388
     ca-central-1:
-      SPSLRHEL: ami-0d5c54f2e718af8be
-      SPSLRHELBYOL: ami-095644403b5fd5581
+      SPSLRHEL: ami-06304d3a18e4769b0
+      SPSLRHELBYOL: ami-03bf5d2615503653b
     eu-central-1:
-      SPSLRHEL: ami-09491fdbec81caccf
-      SPSLRHELBYOL: ami-0944551716698acfd
+      SPSLRHEL: ami-03c9ac3d2f80d6d4d
+      SPSLRHELBYOL: ami-0c64eb85784b34688
     eu-north-1:
-      SPSLRHEL: ami-037ef075742bf4343
-      SPSLRHELBYOL: ami-0bb0dbf26654d51cb
+      SPSLRHEL: ami-0a5370babf329177a
+      SPSLRHELBYOL: ami-0cc1d784979aa813e
     eu-west-1:
-      SPSLRHEL: ami-03d1efaef90eb309b
-      SPSLRHELBYOL: ami-0dad48da97e9ab37d
+      SPSLRHEL: ami-0a8fc27645b8d83ce
+      SPSLRHELBYOL: ami-0caa90e4504e51d1e
     eu-west-2:
-      SPSLRHEL: ami-02ae9d981572da5cd
-      SPSLRHELBYOL: ami-03e661bb8b3105cb2
+      SPSLRHEL: ami-0d0dfe8065f0f28c1
+      SPSLRHELBYOL: ami-0108ff25fb7c90557
     eu-west-3:
-      SPSLRHEL: ami-0212a22bd7f649252
-      SPSLRHELBYOL: ami-0e089a53a16e9a879
+      SPSLRHEL: ami-0c0e6de7d27e376ed
+      SPSLRHELBYOL: ami-0ee40d2bd9b40ac63
     sa-east-1:
-      SPSLRHEL: ami-0cb2883a76e7eff6c
-      SPSLRHELBYOL: ami-048e86bddb10570de
+      SPSLRHEL: ami-0aead70069def20c0
+      SPSLRHELBYOL: ami-0f23099fdea155ef0
     us-east-1:
-      SPSLRHEL: ami-0bf453a3f805ec754
-      SPSLRHELBYOL: ami-0b37b748aa7d04908
+      SPSLRHEL: ami-01b58731361c4f7cb
+      SPSLRHELBYOL: ami-02e850516d0f7bc76
     us-east-2:
-      SPSLRHEL: ami-06c4b7a0f2e81c3fa
-      SPSLRHELBYOL: ami-0bf20e0cbbc631ff9
+      SPSLRHEL: ami-0d4f9d06af86b9c64
+      SPSLRHELBYOL: ami-03b3da5142eb3e734
     us-west-1:
-      SPSLRHEL: ami-0ed9bd0964a60fae2
-      SPSLRHELBYOL: ami-05ae01a676795e523
+      SPSLRHEL: ami-0b6cd1d4173b30c09
+      SPSLRHELBYOL: ami-0daab972de37db748
     us-west-2:
-      SPSLRHEL: ami-03540f855708b82d6
-      SPSLRHELBYOL: ami-049f44917adb3a215
+      SPSLRHEL: ami-016b2d3e9130eb6a6
+      SPSLRHELBYOL: ami-07bf5dc770a25cc79
 Conditions:
   UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
   HomeProvisionedIopsCondition: !Equals [!Ref HomeVolumeType, "Provisioned IOPS"]
