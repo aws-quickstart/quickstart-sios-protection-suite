@@ -1,5 +1,0 @@
-This deployment of SIOS LifeKeeper for Linux uses a Bring Your Own License (BYOL)
-model. You can purchase a https://us.sios.com/about/contact-us/[runtime license] or request a http://us.sios.com/SAN-SANless-clusters/free-trial-evaluation-san-sanless-clusters[14-day free trial license].
-
-You also have the option of using a Pay As You Go (PAYG) license model, which installs a
-basic license. If you want to upgrade to full functionality, https://us.sios.com/about/contact-us/[contact SIOS sales^].
