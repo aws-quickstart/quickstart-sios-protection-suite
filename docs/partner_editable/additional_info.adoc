@@ -11,7 +11,7 @@ that the `lcdstatus` command reports that failover is allowed for all resources.
 . On the *Stacks* page, look for a status of `CREATE_FAILED`. 
 . Choose the stack name.
 . On the *Stack details* page, choose the *Events* tab. Find the explanation for the failed status in the *Status reason* column.
-. Fix errors with the stack. For help, see https://docs.us.sios.com/spslinux/current/en/topic/troubleshooting[Troubleshooting^] or see https://support.us.sios.com/aspx/SupportHome[SIOS Support^]. Contact mailto:evalsupport@us.sios.com[SIOS pre-sales support^] during an evaluation period.
+. Fix errors with the stack. For help, see https://docs.us.sios.com/spslinux/current/en/topic/troubleshooting[Troubleshooting^] or see https://support.us.sios.com/aspx/SupportHome[SIOS Support^]. Contact https://us.sios.com/about/contact-us/[SIOS pre-sales support^] during an evaluation period.
 . After all stacks have a status of `CREATE COMPLETE`, open the https://console.aws.amazon.com/ec2/v2/home?region=us-east-1[Amazon EC2 console^].
 . Log in to either the bastion host or the optional Windows jump server. Follow the https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux[AWS guidelines^] for connecting to your instances.
 . From the jump server node, use SSH (Secure Shell) to connect to the instance in the first Availability Zone.
@@ -22,7 +22,7 @@ that the `lcdstatus` command reports that failover is allowed for all resources.
 .Output of lcdstatus
 image::../images/lcdstatus-output.png[Test]
 
-For more information, see https://docs.us.sios.com/spslinux/current/en/topic/sios-protection-suite-for-linux-technical-documentation[SIOS Technical Documentation^].
+For more information, see https://docs.us.sios.com/Linux/current/LK4L/sios-protection-suite-for-linux-technical-documentation[SIOS Technical Documentation^].
 
 == Best Practices
 
@@ -32,5 +32,3 @@ Refer to the following AWS best practices for creating and using IAM roles and p
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html[Creating IAM policies^]
 * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html[How IAM users sign in to AWS^]
 * https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users[How to Rotate Access Keys for IAM Users^]
-
-For SIOS best practices, see https://docs.us.sios.com/dkce/8.8.0/en/topic/best-practices[Best Practices^].

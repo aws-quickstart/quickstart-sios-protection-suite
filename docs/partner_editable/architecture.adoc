@@ -29,7 +29,7 @@ As shown in <<architecture1>>, the Quick Start sets up the following:
 // Space needed to maintain table headers
 |VPC |Single AWS Region with two Availability Zones.
 |Instance type |Minimum recommended instance type: t2.medium.
-|Operating system |See the https://docs.us.sios.com/spslinux/current/en/topic/sios-protection-for-linux-support-matrix[SIOS LifeKeeper for Linux Support Matrix].
+|Operating system |See the https://docs.us.sios.com/Linux/current/LK4L/support-matrix[SIOS LifeKeeper for Linux Support Matrix].
 |Elastic IP |One Elastic IP address connected to each bastion host instance.
 |Instances |Two instances: two SIOS LifeKeeper for Linux cluster nodes.
 |Volumes |Two volumes (gp2 or io3) per cluster node: one home volume (/) and one additional volume for replicated data storage.

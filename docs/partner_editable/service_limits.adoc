@@ -4,7 +4,7 @@
 
 // Space needed to maintain table headers
 |VPCs |1
-|Operating system | See https://docs.us.sios.com/spslinux/current/en/topic/sios-protection-for-linux-support-matrix[SIOS LifeKeeper for Linux Support Matrix^].
+|Operating system | See https://docs.us.sios.com/Linux/current/LK4L/support-matrix[SIOS LifeKeeper for Linux Support Matrix^].
 |Elastic IP addresses |1
 |Security groups |3
 |AWS Identity and Access Management (IAM) roles |2
