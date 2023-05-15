@@ -11,7 +11,7 @@ that the `lcdstatus` command reports that failover is allowed for all resources.
 . On the *Stacks* page, look for a status of `CREATE_FAILED`. 
 . Choose the stack name.
 . On the *Stack details* page, choose the *Events* tab. Find the explanation for the failed status in the *Status reason* column.
-. Fix errors with the stack. For help, see https://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm#troubleshooting.htm#kanchor187[Troubleshooting^] or see https://support.us.sios.com/aspx/SupportHome[SIOS Support^]. Contact mailto:evalsupport@us.sios.com[SIOS pre-sales support^] during an evaluation period.
+. Fix errors with the stack. For help, see https://docs.us.sios.com/spslinux/current/en/topic/troubleshooting[Troubleshooting^] or see https://support.us.sios.com/aspx/SupportHome[SIOS Support^]. Contact mailto:evalsupport@us.sios.com[SIOS pre-sales support^] during an evaluation period.
 . After all stacks have a status of `CREATE COMPLETE`, open the https://console.aws.amazon.com/ec2/v2/home?region=us-east-1[Amazon EC2 console^].
 . Log in to either the bastion host or the optional Windows jump server. Follow the https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux[AWS guidelines^] for connecting to your instances.
 . From the jump server node, use SSH (Secure Shell) to connect to the instance in the first Availability Zone.
@@ -22,7 +22,7 @@ that the `lcdstatus` command reports that failover is allowed for all resources.
 .Output of lcdstatus
 image::../images/lcdstatus-output.png[Test]
 
-For more information, see http://docs.us.sios.com/Linux/9.2.2/LK4L/AllTechDocs/index.htm[SIOS Technical Documentation^].
+For more information, see https://docs.us.sios.com/spslinux/current/en/topic/sios-protection-suite-for-linux-technical-documentation[SIOS Technical Documentation^].
 
 == Best Practices
 
